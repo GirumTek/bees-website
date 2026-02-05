@@ -24,7 +24,7 @@ export default function Home() {
          font-extrabold: Makes the text very thick (good for headers).
          text-green-800: Uses the dark green from your brand palette.
       */}
-      <h1 className="text-4xl sm:text-6xl font-extrabold text-green-800 text-center break-words px-2">
+      <h1 className="text-4xl sm:text-6xl font-extrabold text-green-800 text-center leading-tight break-words px-4 mb-8">
       Black Economic Empowerment Society
       </h1>
       
@@ -32,8 +32,8 @@ export default function Home() {
          max-w-2xl: Restricts the width so the text doesn't stretch across the entire 
          screen on wide monitors (which makes it hard to read).
       */}
-      <p className="text-xl text-gray-700 max-w-2xl mb-8">
-        Building wealth, fostering community, and creating opportunities for the future leaders of tomorrow.
+      <p className="text-lg text-gray-600 text-center max-w-md mx-auto mt-4">
+      Building wealth, fostering community, and creating opportunities for the future leaders of tomorrow.
       </p>
       
       {/* CALL TO ACTION (CTA) BUTTONS 
