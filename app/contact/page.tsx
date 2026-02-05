@@ -1,15 +1,18 @@
 export default function ContactPage() {
   return (
-    <div className="bg-white min-h-screen p-10 flex flex-col items-center">
+    /* FIXED: Added w-full max-w-7xl mx-auto to center and widen the container */
+    <div className="bg-white min-h-screen p-10 flex flex-col items-center w-full max-w-7xl mx-auto">
       
       {/* Header */}
       <h1 className="text-4xl font-bold text-green-800 mb-6">Contact Us</h1>
-      <p className="mb-10 text-lg text-gray-600 max-w-lg text-center">
+      {/* FIXED: Increased max-w-2xl so text spreads out on wide screens */}
+      <p className="mb-10 text-lg text-gray-600 max-w-2xl text-center">
         Interested in partnering with BEES, joining the team, or just have a question? We'd love to hear from you.
       </p>
       
       {/* Contact Card */}
-      <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-md border-t-8 border-green-600">
+      {/* FIXED: Increased to max-w-xl to fix the "zoomed in" look on large monitors */}
+      <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-xl border-t-8 border-green-600">
         
         {/* Email Section */}
         <div className="mb-8 text-center">

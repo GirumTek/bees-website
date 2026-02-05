@@ -36,8 +36,8 @@ export default async function ExecPage() {
   const team: BoardMember[] = await getTeam();
 
   return (
-    <div className="bg-white min-h-screen p-10">
-      <div className="max-w-7xl mx-auto">
+    <div className="bg-white min-h-screen p-10 flex flex-col items-center w-full max-w-7xl mx-auto">
+      <div className="w-full">
         <h1 className="text-4xl font-bold text-center text-green-800 mb-12">
           Meet the Executive Board
         </h1>
@@ -53,8 +53,8 @@ export default async function ExecPage() {
             team.map((member) => (
               
               /* CARD CONTAINER
-                 w-full sm:w-80: Full width on mobile, fixed 20rem width on larger screens.
-                 hover:shadow-2xl: Adds a nice "lift" effect when the user hovers.
+                  w-full sm:w-80: Full width on mobile, fixed 20rem width on larger screens.
+                  hover:shadow-2xl: Adds a nice "lift" effect when the user hovers.
               */
               <div key={member._id} className="w-full sm:w-80 bg-white rounded-3xl shadow-lg border-2 border-green-600 overflow-hidden hover:shadow-2xl transition-shadow duration-300 flex flex-col">
                 
@@ -82,7 +82,7 @@ export default async function ExecPage() {
                 </div>
                 
                 {/* TEXT CONTENT 
-                   flex-grow: Pushes the footer/role to the bottom if the name is long.
+                    flex-grow: Pushes the footer/role to the bottom if the name is long.
                 */}
                 <div className="p-8 text-center flex-grow flex flex-col justify-between bg-white">
                   <div className="mb-4">

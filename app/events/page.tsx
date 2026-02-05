@@ -38,7 +38,8 @@ export default async function EventsPage() {
 
   return (
     <div className="bg-white min-h-screen p-10">
-      <div className="max-w-4xl mx-auto">
+      {/* FIXED: Changed from max-w-4xl to max-w-7xl to match Navbar on large monitors */}
+      <div className="max-w-7xl mx-auto">
         <h1 className="text-4xl font-bold text-center text-green-900 mb-12">
           Events Calendar
         </h1>

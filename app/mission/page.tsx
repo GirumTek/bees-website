@@ -1,6 +1,7 @@
 export default function MissionPage() {
   return (
-    <div className="p-10 max-w-4xl mx-auto text-center">
+    /* FIXED: Changed from max-w-4xl to max-w-7xl to ensure consistency with the Navbar and other pages on large monitors */
+    <div className="p-10 max-w-7xl mx-auto text-center">
       {/* Main Title */}
       <h1 className="text-4xl font-bold mb-6 text-green-800">Our Mission</h1>
       
@@ -8,7 +9,7 @@ export default function MissionPage() {
       <p className="text-xl leading-relaxed text-gray-800 mb-10">
         "To increase financial literacy,emphasize the importance of asset ownership, and empower Black students to start their own
          businesses. Expanding knowledge and access to financial capital will be a meaningful step in 
-        addressing historical inequities facing the Black community and lead to economic empowerment."
+         addressing historical inequities facing the Black community and lead to economic empowerment."
       </p>
 
       {/* A Box for Core Values */}

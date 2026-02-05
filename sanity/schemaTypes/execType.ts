@@ -15,7 +15,7 @@ export const execType = defineType({
       title: 'Role',
       type: 'string',
     }),
-    
+  
     defineField({
       name: 'order',
       title: 'Order',

@@ -29,7 +29,7 @@ export const eventType = defineType({
     defineField({
       name: 'details',
       type: 'array',
-      of: [{ type: 'block' }], // This gives you a rich text editor!
+      of: [{ type: 'block' }], 
     }),
   ],
 })

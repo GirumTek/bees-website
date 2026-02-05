@@ -18,7 +18,8 @@ export default function ImpactPage(){
   ];
   return (
     <div className="bg-white min-h-screen p-10">
-      <div className="max-w-6xl mx-auto text-center">
+      {/* FIXED: Changed from max-w-6xl to max-w-7xl to ensure alignment with the Navbar on large monitors */}
+      <div className="max-w-7xl mx-auto text-center">
         
         {/* Header */}
         <h1 className="text-4xl font-bold text-green-800 mb-6">Our Impact</h1>
