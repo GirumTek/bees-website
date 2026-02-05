@@ -19,7 +19,7 @@ export default function ContactPage() {
           <h2 className="text-xl font-bold text-gray-800 mb-2">📧 Email Us</h2>
           <p className="text-gray-600 mb-3">For general inquiries and partnerships:</p>
           <a 
-            href="mailto:bees@university.edu" 
+            href="mailto:beesatuva@gmail.com" 
             className="inline-block bg-green-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-800 transition"
           >
             Email the Board

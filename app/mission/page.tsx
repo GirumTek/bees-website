@@ -7,7 +7,7 @@ export default function MissionPage() {
       
       {/* The Mission Statement */}
       <p className="text-xl leading-relaxed text-gray-800 mb-10">
-        "To increase financial literacy,emphasize the importance of asset ownership, and empower Black students to start their own
+        "To increase financial literacy, emphasize the importance of asset ownership, and empower Black students to start their own
          businesses. Expanding knowledge and access to financial capital will be a meaningful step in 
          addressing historical inequities facing the Black community and lead to economic empowerment."
       </p>
