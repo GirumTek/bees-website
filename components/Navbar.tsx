@@ -91,14 +91,13 @@ export default function Navbar() {
 // ----------------------------------------------------------------------
 // HELPER COMPONENTS (To keep the main code clean)
 // ----------------------------------------------------------------------
-
 // DESKTOP LINK COMPONENT
-// Standard link style for the top bar.
 function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <Link
       href={href}
-      className="px-3 py-2 rounded-md text-sm font-medium hover:bg-green-600 hover:text-white transition"
+      /* Added flex items-center to ensure vertical alignment */
+      className="px-3 py-2 rounded-md text-sm font-semibold hover:bg-green-600 hover:text-white transition flex items-center"
     >
       {children}
     </Link>
@@ -106,13 +105,13 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
 }
 
 // MOBILE LINK COMPONENT
-// Bigger hit targets (finger-friendly) and full-width block display.
 function MobileNavLink({ href, onClick, children }: { href: string; onClick: () => void; children: React.ReactNode }) {
   return (
     <Link
       href={href}
       onClick={onClick}
-      className="block px-3 py-4 rounded-md text-base font-medium text-white hover:bg-green-600 hover:text-white transition border-b border-green-700 last:border-0"
+      /* Added w-full and text-left to fix mobile stretching */
+      className="block w-full text-left px-3 py-4 rounded-md text-base font-medium text-white hover:bg-green-600 transition border-b border-green-700 last:border-0"
     >
       {children}
     </Link>

@@ -20,12 +20,12 @@ export default function Home() {
         className="w-48 h-48 mb-8 object-contain" 
       />
 
-      {/* HERO HEADLINE
+      {/* HEADLINE
          font-extrabold: Makes the text very thick (good for headers).
          text-green-800: Uses the dark green from your brand palette.
       */}
-      <h1 className="text-6xl font-extrabold text-green-800 mb-6">
-        Black Economic Empowerment Society
+      <h1 className="text-4xl sm:text-6xl font-extrabold text-green-800 text-center break-words px-2">
+      Black Economic Empowerment Society
       </h1>
       
       {/* SUBTITLE
