@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🐝 BEES Website (Black Economic Empowerment Society)
 
-## Getting Started
+The official website for the **Black Economic Empowerment Society (BEES)** at the University of Virginia. This platform serves as a central hub for student members to connect, view upcoming events, meet the executive board, and learn about the organization's impact.
 
-First, run the development server:
+Built with **Next.js 14**, **TypeScript**, **Tailwind CSS**, and **Sanity.io** (Headless CMS).
+
+---
+
+## 🚀 Tech Stack
+
+* **Frontend Framework:** [Next.js 14](https://nextjs.org/) (App Router)
+* **Language:** [TypeScript](https://www.typescriptlang.org/)
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+* **Content Management (CMS):** [Sanity.io](https://www.sanity.io/)
+* **Deployment:** Vercel (Recommended)
+
+---
+
+## ✨ Key Features
+
+* **📱 Mobile-First Design:** Fully responsive navigation with a custom hamburger menu.
+* **⚡ Dynamic Content:** Events and Executive Board members are fetched in real-time from Sanity CMS.
+* **🎨 Modern UI:** Clean, accessible interface using Tailwind CSS.
+* **🖼️ Image Optimization:** Automatic image resizing and lazy loading.
+* **🔍 SEO Ready:** Built-in metadata and semantic HTML structure.
+
+---
+
+## 🛠️ Quick Start
+
+Run these commands in your terminal to set up the project from scratch.
 
 ```bash
+# 1. Clone and enter the repository
+git clone https://github.com/GirumTek/bees-website.git
+cd bees-website
+
+# 2. Install dependencies
+npm install
+
+# 3. Create the environment file
+# (IMPORTANT: Replace 'your_project_id' below with your actual Sanity ID)
+echo "NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id" > .env.local
+echo "NEXT_PUBLIC_SANITY_DATASET=production" >> .env.local
+
+# 4. Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📝 Content Management (Sanity Studio)
 
-## Learn More
+This project includes an embedded Sanity Studio for managing content.
 
-To learn more about Next.js, take a look at the following resources:
+1.  Go to `http://localhost:3000/studio`
+2.  Login with your Sanity credentials.
+3.  **Events:** Add, edit, or remove upcoming events.
+4.  **Executive:** Update board member profiles and headshots.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📂 Project Structure
 
-## Deploy on Vercel
+```text
+├── app/                  # Next.js App Router
+│   ├── components/       # Reusable UI components (Navbar, Footer)
+│   ├── events/           # Events page (Sanity fetch)
+│   ├── exec/             # Executive Board page (Sanity fetch)
+│   ├── studio/           # Embedded Sanity Studio
+│   └── layout.tsx        # Root layout (Metadata, Fonts)
+├── sanity/               # Sanity CMS configuration
+│   ├── schemas/          # Data models (event.ts, executive.ts)
+│   └── lib/              # Sanity client & image utilities
+└── public/               # Static assets (logos, icons)
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
