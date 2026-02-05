@@ -80,16 +80,22 @@ export default async function EventsPage() {
                     {/* DATE FORMATTING:
                       Using native JS .toLocaleDateString to format the ISO date string 
                       coming from Sanity into something human-readable.
+                      Displays on two lines: date on top, time below (works on mobile and desktop).
+                      Using UTC to prevent timezone conversion issues.
                     */}
-                    <div className="bg-green-100 text-green-800 px-4 py-2 rounded-lg font-bold text-center border border-green-200">
-                      {new Date(event.date).toLocaleDateString("en-US", {
-                        month: "short",
-                        day: "numeric",
-                      })}
+                    <div className="bg-green-100 text-green-800 px-4 py-2 rounded-lg font-bold text-center border border-green-200 flex-shrink-0">
+                      <div>
+                        {new Date(event.date).toLocaleDateString("en-US", {
+                          month: "short",
+                          day: "numeric",
+                          timeZone: "UTC",
+                        })}
+                      </div>
                       <div className="text-sm font-normal text-gray-600">
                         {new Date(event.date).toLocaleTimeString("en-US", {
                           hour: "numeric",
                           minute: "2-digit",
+                          timeZone: "UTC",
                         })}
                       </div>
                     </div>

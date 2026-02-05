@@ -4,10 +4,11 @@ import Link from "next/link";
 export default function Home() {
   return (
     /* MAIN CONTAINER
-       min-h-screen: Ensures the hero section takes up at least the full height of the user's screen.
+       min-h-[calc(100vh-4rem)]: Ensures the hero section takes up the full height minus the navbar (4rem = 64px).
        flex flex-col items-center justify-center: This is the "Flexbox Trick" to perfectly center content vertically and horizontally.
+       pt-16: Adds top padding to account for the sticky navbar.
     */
-    <main className="min-h-screen flex flex-col items-center justify-center bg-white text-center p-10">
+    <main className="min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center bg-white text-center p-10 pt-16">
       
       {/* THE LOGO 
          The <Image /> component instead of <img> because it automatically optimizes the file size for us.
@@ -32,7 +33,7 @@ export default function Home() {
          max-w-2xl: Restricts the width so the text doesn't stretch across the entire 
          screen on wide monitors (which makes it hard to read).
       */}
-      <p className="text-lg text-gray-600 text-center max-w-md mx-auto mt-4">
+      <p className="text-lg text-gray-600 text-center max-w-md mx-auto mt-4 mb-8">
       Building wealth, fostering community, and creating opportunities for the future leaders of tomorrow.
       </p>
       
