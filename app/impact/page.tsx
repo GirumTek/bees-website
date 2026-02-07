@@ -15,10 +15,10 @@ export default function ImpactPage(){
       value: "30+", 
       description: "Providing a platform for Black entrepreneurs to sell and grow in our Pop-Up Shop Event."
     },
+    
   ];
   return (
     <div className="bg-white min-h-screen p-10">
-      {/* FIXED: Changed from max-w-6xl to max-w-7xl to ensure alignment with the Navbar on large monitors */}
       <div className="max-w-7xl mx-auto text-center">
         
         {/* Header */}
@@ -27,10 +27,13 @@ export default function ImpactPage(){
           BEES is dedicated to tangible results. Here is how we are making a difference in the community and on campus.
         </p>
 
-        {/* The Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+     {/* The Stats Container (Flexbox for perfect centering) */}
+        <div className="flex flex-wrap justify-center gap-8">
           {stats.map((stat, index) => (
-            <div key={index} className="p-8 rounded-2xl bg-green-50 border-2 border-green-100 shadow-lg hover:-translate-y-2 transition-transform duration-300">
+            <div 
+              key={index} 
+              className="p-8 rounded-2xl bg-green-50 border-2 border-green-100 shadow-lg hover:-translate-y-2 transition-transform duration-300 w-full md:w-[350px]"
+            >
               {/* Big Number */}
               <div className="text-5xl font-extrabold text-green-700 mb-2">
                 {stat.value}
