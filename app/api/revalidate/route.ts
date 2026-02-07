@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
     }
 
     
-     revalidateTag(body._type,'max');
+     revalidateTag(body._type,{ expire: 0 } as any);
     
     return NextResponse.json({ revalidated: true, now: Date.now() });
   } catch (err) {
