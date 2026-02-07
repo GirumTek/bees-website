@@ -1,28 +1,29 @@
+import { NextRequest, NextResponse } from "next/server";
 import { revalidateTag } from "next/cache";
-import { type NextRequest, NextResponse } from "next/server";
-import { parseBody } from "next-sanity/webhook";
 
 export async function POST(req: NextRequest) {
   try {
-    const { body, isValidSignature } = await parseBody<{ _type: string }>(
-      req,
-      process.env.SANITY_REVALIDATE_SECRET
-    );
-
-    if (!isValidSignature) {
-      return new NextResponse("Invalid signature", { status: 401 });
-    }
-
-    if (!body?._type) {
-      return new NextResponse("Bad Request", { status: 400 });
-    }
+    const body = await req.json();
+    const secret = req.headers.get("x-sanity-signature");
 
     
-     revalidateTag(body._type,{ expire: 0 } as any);
-    
-    return NextResponse.json({ revalidated: true, now: Date.now() });
+    console.log("REVALIDATE TRIGGERED. Payload:", JSON.stringify(body));
+
+    if (!body._type) {
+      console.error("No _type found in body. Check Sanity Projection settings.");
+      return NextResponse.json({ message: "No type provided" }, { status: 400 });
+    }
+
+    // Forces an immediate cache dump
+    await revalidateTag(body._type, { expire: 0 } as any);
+
+    return NextResponse.json({ 
+      revalidated: true, 
+      now: Date.now(), 
+      tag: body._type 
+    });
   } catch (err) {
-    console.error(err);
-    return new NextResponse("Error revalidating", { status: 500 });
+    console.error("Revalidation Error:", err);
+    return NextResponse.json({ message: "Error revalidating" }, { status: 500 });
   }
 }
