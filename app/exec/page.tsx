@@ -14,20 +14,15 @@ interface BoardMember {
 
 // 2. DATA FETCHING LAYER
 // This function runs on the server side.
-async function getTeam() {
-  // GROQ Query breakdown:
-  // 1. *[_type == "executive"] -> Find all documents of type 'executive'
-  // 2. | order(order asc)      -> Sort them by the numeric 'order' field (1, 2, 3...)
-  //                               This ensures the CEO is always first.
-  const query = `*[_type == "executive"] | order(order asc) {
-    _id,
-    name,
-    role,
-    image
-  }`;
+
+
+ async function getTeam() {
+  const query = `*[_type == "executive"] | order(orderRank)`;
   
-  // Await the fetch request to Sanity's database
-  return await client.fetch(query);
+  // Await the fetch request with the specific tag
+  return await client.fetch(query, {}, { 
+    next: { tags: ["executive"] } 
+  });
 }
 
 // 3. MAIN SERVER COMPONENT

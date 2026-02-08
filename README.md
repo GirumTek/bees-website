@@ -26,6 +26,7 @@ Built with **Next.js 14**, **TypeScript**, **Tailwind CSS**, and **Sanity.io** (
 
 ---
 
+
 ## 🛠️ Quick Start
 
 Run these commands in your terminal to set up the project from scratch.

@@ -17,31 +17,25 @@ interface Event {
 // DATA FETCHING SERVICE
 // This runs on the server. We fetch *all* events and sort them by date closest to now.
 async function getEvents() {
-  const query = `*[_type == "event"] | order(date asc) {
-    _id,
-    name,
-    date,
-    location,
-    image,
-    details
-  }`;
+  const query = `*[_type == "event"] | order(date desc)`;
   
-  // client.fetch returns a Promise, so we await it
-  return await client.fetch(query);
+  return await client.fetch(query, {}, { 
+    next: { 
+      tags: ["event"] 
+    } 
+  });
 }
 
 // MAIN COMPONENT
-// This is an Async Server Component (standard in Next.js 13+).
 // It fetches data directly inside the component body.
 export default async function EventsPage() {
   const events: Event[] = await getEvents();
 
   return (
     <div className="bg-white min-h-screen p-10">
-      {/* FIXED: Changed from max-w-4xl to max-w-7xl to match Navbar on large monitors */}
       <div className="max-w-7xl mx-auto">
         <h1 className="text-4xl font-bold text-center text-green-900 mb-12">
-          Events Calendar
+          Upcoming Events
         </h1>
 
         <div className="flex flex-col gap-10">
