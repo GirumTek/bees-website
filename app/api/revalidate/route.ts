@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
     }
 
     
-    await revalidateTag(tag,'page'); 
+    await revalidateTag(tag,'max'); 
 
     return NextResponse.json({ revalidated: true, now: Date.now() });
   } catch (err) {
