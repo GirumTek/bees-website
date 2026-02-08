@@ -17,8 +17,8 @@ export const execType = defineType({
     }),
   
     defineField({
-      name: 'order',
-      title: 'Order',
+      name: 'orderRank',
+      title: 'Order Rank',
       type: 'number',
       description: '1 for CEO, 2 for Vice CEO, etc.',
     }),
