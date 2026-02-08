@@ -16,10 +16,10 @@ interface BoardMember {
 // This function runs on the server side.
 
 
- async function getTeam() {
-  const query = `*[_type == "executive"] | order(orderRank asc)`;
+ 
+async function getTeam() {
+  const query = `*[_type == "executive"] | order(coalesce(orderRank, 999) asc)`;
   
-  // Await the fetch request with the specific tag
   return await client.fetch(query, {}, { 
     next: { tags: ["executive"] } 
   });
