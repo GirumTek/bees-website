@@ -41,8 +41,8 @@ npm install
 
 # 3. Create the environment file
 # (IMPORTANT: Replace 'your_project_id' below with your actual Sanity ID)
-echo "NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id" > .env.local
-echo "NEXT_PUBLIC_SANITY_DATASET=production" >> .env.local
+echo "NEXT_PUBLIC_SANITY_PROJECT_ID= "your_project_id" > .env.local
+echo "NEXT_PUBLIC_SANITY_DATASET= "production" >> .env.local
 
 # 4. Start the development server
 npm run dev
