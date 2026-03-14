@@ -1,5 +1,9 @@
-import Image from "next/image"; 
-import Link from "next/link";  
+import type { CSSProperties } from "react";
+
+const HERO_SLIDES = [
+  "/hero/beesimg_petersburgteens.png",
+  "/hero/beesimg_petersburgteens2.png",
+] as const;
 
 export default function Home() {
   return (
@@ -8,7 +12,35 @@ export default function Home() {
        flex flex-col items-center justify-center: This is the "Flexbox Trick" to perfectly center content vertically and horizontally.
        pt-16: Adds top padding to account for the sticky navbar.
     */
-    <main className="min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center bg-white text-center p-10 pt-16">
+    <main className="relative -mt-8 min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center text-center p-10 pt-16">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 left-1/2 w-[100dvw] -translate-x-1/2 overflow-hidden"
+      >
+        <div
+          className="hero-slideshow"
+          style={
+            { "--hero-duration": `${HERO_SLIDES.length * 5}s` } as CSSProperties
+          }
+        >
+          {HERO_SLIDES.map((slide, index) => (
+            <div
+              key={slide}
+              className="hero-slide"
+              style={{
+                backgroundImage: `url('${slide}')`,
+                animationDelay: `${index * 5}s`,
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="absolute inset-0 bg-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-b from-green-950/20 via-transparent to-green-900/20" />
+      </div>
+
+      <div className="relative z-10 flex flex-col items-center">
+
       
       {/* THE LOGO 
          The <Image /> component instead of <img> because it automatically optimizes the file size for us.
@@ -56,6 +88,7 @@ export default function Home() {
         <a href="/events" className="px-6 py-3 border-2 border-green-700 text-green-700 font-bold rounded-lg hover:bg-green-100 transition">
           Upcoming Events
         </a>
+      </div>
       </div>
     </main>
   );
