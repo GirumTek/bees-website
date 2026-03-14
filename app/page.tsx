@@ -35,8 +35,8 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="absolute inset-0 bg-black/35" />
-        <div className="absolute inset-0 bg-gradient-to-b from-green-950/20 via-transparent to-green-900/20" />
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-green-950/30 via-black/10 to-green-900/30" />
       </div>
 
       <div className="relative z-10 flex flex-col items-center">
@@ -48,7 +48,7 @@ export default function Home() {
          object-contain: Ensures the logo doesn't get stretched if the width/height change.
       */}
       <img 
-        src="/bees-logo.jpg" 
+        src="/circular_bees_logo.png" 
         alt="BEES Logo" 
         className="w-48 h-48 mb-8 object-contain" 
       />
@@ -57,7 +57,7 @@ export default function Home() {
          font-extrabold: Makes the text very thick (good for headers).
          text-green-800: Uses the dark green from your brand palette.
       */}
-      <h1 className="text-4xl sm:text-6xl font-extrabold text-green-800 text-center leading-tight break-words px-4 mb-8">
+      <h1 className="text-4xl sm:text-6xl font-extrabold text-white text-center leading-tight break-words px-4 mb-8">
       Black Economic Empowerment Society
       </h1>
       
@@ -65,7 +65,7 @@ export default function Home() {
          max-w-2xl: Restricts the width so the text doesn't stretch across the entire 
          screen on wide monitors (which makes it hard to read).
       */}
-      <p className="text-lg text-gray-600 text-center max-w-md mx-auto mt-4 mb-8">
+      <p className="text-lg text-white/85 text-center max-w-md mx-auto mt-4 mb-8">
       Building wealth, fostering community, and creating opportunities for the future leaders of tomorrow.
       </p>
       
@@ -85,7 +85,7 @@ export default function Home() {
            border-2: Adds the outline.
            hover:bg-green-100: Adds a light tint when you hover, instead of a solid color change.
         */}
-        <a href="/events" className="px-6 py-3 border-2 border-green-700 text-green-700 font-bold rounded-lg hover:bg-green-100 transition">
+        <a href="/events" className="px-6 py-3 border-2 border-white text-white font-bold rounded-lg hover:bg-green-400 transition">
           Upcoming Events
         </a>
       </div>
