@@ -96,7 +96,7 @@ export default async function EventsPage() {
                             month: "long",
                             day: "numeric",
                             year: "numeric",
-                            timeZone: "UTC",
+                            timeZone: "America/New_York",
                           })}
                         </p>
                       </div>
@@ -165,14 +165,14 @@ function EventCard({ event, isPast = false }: { event: Event; isPast?: boolean }
               {new Date(event.date).toLocaleDateString("en-US", {
                 month: "short",
                 day: "numeric",
-                timeZone: "UTC",
+                timeZone: "America/New_York",
               })}
             </div>
             <div className="text-sm font-normal text-gray-600">
               {new Date(event.date).toLocaleTimeString("en-US", {
                 hour: "numeric",
                 minute: "2-digit",
-                timeZone: "UTC",
+                timeZone: "America/New_York",
               })}
             </div>
           </div>
