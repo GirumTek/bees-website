@@ -24,6 +24,7 @@ export default function Navbar() {
             <div className="flex items-baseline space-x-4">
               <NavLink href="/exec">Exec Board</NavLink>
               <NavLink href="/mission">Mission</NavLink>
+              <NavLink href="/learn-more">Learn More</NavLink>
               <NavLink href="/events">Events</NavLink>
               <NavLink href="/impact">Impact</NavLink>
               <NavLink href="/contact">Contact</NavLink>
@@ -58,6 +59,7 @@ export default function Navbar() {
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
             <MobileNavLink href="/exec" onClick={() => setIsOpen(false)}>Exec Board</MobileNavLink>
             <MobileNavLink href="/mission" onClick={() => setIsOpen(false)}>Mission</MobileNavLink>
+            <MobileNavLink href="/learn-more" onClick={() => setIsOpen(false)}>Learn More</MobileNavLink>
             <MobileNavLink href="/events" onClick={() => setIsOpen(false)}>Events</MobileNavLink>
             <MobileNavLink href="/impact" onClick={() => setIsOpen(false)}>Impact</MobileNavLink>
             <MobileNavLink href="/contact" onClick={() => setIsOpen(false)}>Contact</MobileNavLink>
