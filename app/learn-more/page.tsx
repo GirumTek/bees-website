@@ -224,7 +224,7 @@ export default function LearnMorePage() {
             Active members join one of our committees to drive BEES&apos;s mission forward.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {/* Events Committee */}
             <div className="p-6 bg-white rounded-2xl shadow-lg border border-gray-200 hover:border-green-300 transition">
               <div className="text-3xl mb-3">📅</div>
@@ -263,20 +263,6 @@ export default function LearnMorePage() {
                 visibility. This committee crafts our messaging, designs
                 promotional materials, and ensures our events reach the widest
                 audience possible.
-              </p>
-            </div>
-
-            {/* Partnerships / Community Engagement */}
-            <div className="p-6 bg-white rounded-2xl shadow-lg border border-gray-200 hover:border-green-300 transition">
-              <div className="text-3xl mb-3">🤝</div>
-              <h4 className="text-xl font-bold text-green-800 mb-2">
-                Partnerships &amp; Community Engagement
-              </h4>
-              <p className="text-gray-600">
-                Builds relationships with other student organizations, local
-                businesses, alumni, and industry partners. This committee
-                expands BEES&apos;s network and creates collaboration opportunities
-                that benefit the entire community.
               </p>
             </div>
           </div>
