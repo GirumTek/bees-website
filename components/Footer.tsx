@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="bg-green-900 text-white mt-16">
       <div className="max-w-7xl mx-auto px-6 py-12">
         {/* Top section: Branding left, Link columns right */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-12 items-start">
           {/* About */}
           <div>
             <h3 className="font-bold text-green-300 mb-4 text-sm uppercase tracking-wider">
@@ -51,7 +51,7 @@ export default function Footer() {
           </div>
 
           {/* Branding / About blurb — right side, takes 2 columns */}
-          <div className="lg:col-span-2 lg:text-right">
+          <div className="lg:col-span-2 lg:text-left">
             <h2 className="text-2xl font-bold text-white mb-3">BEES 🐝</h2>
             <p className="text-green-200 text-sm leading-relaxed mb-4">
               The Black Economic Empowerment Society is dedicated to increasing

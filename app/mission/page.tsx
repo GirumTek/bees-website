@@ -28,8 +28,8 @@ export default function MissionPage() {
       {/* ═══════════════════════════════════════════════
           SECTION 2 — OUR STORY
       ═══════════════════════════════════════════════ */}
-      <section className="text-center" id="our-story">
-        <h2 className="text-4xl font-bold text-green-800 mb-6">Our Story</h2>
+      <section className="text-center">
+        <h2 id="our-story" className="text-4xl font-bold text-green-800 mb-6 scroll-mt-20">Our Story</h2>
         <p className="text-xl leading-relaxed text-gray-700 max-w-3xl mx-auto mb-6">
           The Black Economic Empowerment Society (BEES) was founded by{" "}
           <strong className="text-green-800">Syrell Grier</strong> with a bold

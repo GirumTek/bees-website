@@ -96,8 +96,8 @@ export default function GetInvolvedPage() {
         {/* ═══════════════════════════════════════════════
             OUR COMMITTEES
         ═══════════════════════════════════════════════ */}
-        <section id="committees">
-          <h2 className="text-3xl font-bold text-center text-green-800 mb-4">
+        <section>
+          <h2 id="committees" className="text-3xl font-bold text-center text-green-800 mb-4 scroll-mt-20">
             Our Committees
           </h2>
           <p className="text-center text-gray-500 mb-10 max-w-xl mx-auto">
