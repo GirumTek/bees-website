@@ -50,3 +50,8 @@
     opacity: 1;
   }
 }
+
+/* Remove footer top margin on homepage (hero page) */
+body:has(.hero-page) footer {
+  margin-top: 0;
+}

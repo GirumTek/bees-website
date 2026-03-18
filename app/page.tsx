@@ -12,7 +12,7 @@ export default function Home() {
        flex flex-col items-center justify-center: This is the "Flexbox Trick" to perfectly center content vertically and horizontally.
        pt-16: Adds top padding to account for the sticky navbar.
     */
-    <main className="relative -mt-8 min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center text-center p-10 pt-16">
+    <main className="hero-page relative -mt-8 min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center text-center p-10 pt-16">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-y-0 left-1/2 w-[100dvw] -translate-x-1/2 overflow-hidden"
