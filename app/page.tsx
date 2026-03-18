@@ -1,11 +1,40 @@
 import type { CSSProperties } from "react";
+import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
 
-const HERO_SLIDES = [
-  "/hero/beesimg_petersburgteens.png",
-  "/hero/beesimg_petersburgteens2.png",
-] as const;
+// Fallback images if no Sanity slides exist yet
+const FALLBACK_SLIDES = [
+  { url: "/hero/beesimg_petersburgteens.png", alt: "BEES students" },
+  { url: "/hero/beesimg_petersburgteens2.png", alt: "BEES students" },
+];
 
-export default function Home() {
+interface HeroSlide {
+  _id: string;
+  image: any;
+  alt: string;
+  order: number;
+}
+
+async function getHeroSlides() {
+  const query = `*[_type == "heroSlide"] | order(order asc) { _id, image, alt, order }`;
+  return await client.fetch(query, {}, {
+    next: {
+      tags: ["heroSlide"],
+    },
+  });
+}
+
+export default async function Home() {
+  const sanitySlides: HeroSlide[] = await getHeroSlides();
+
+  // Use Sanity slides if available, otherwise fall back to local images
+  const slides = sanitySlides.length > 0
+    ? sanitySlides.map((slide) => ({
+        url: urlFor(slide.image).width(1920).quality(80).url(),
+        alt: slide.alt,
+      }))
+    : FALLBACK_SLIDES;
+
   return (
     /* MAIN CONTAINER
        min-h-[calc(100vh-4rem)]: Ensures the hero section takes up the full height minus the navbar (4rem = 64px).
@@ -20,15 +49,15 @@ export default function Home() {
         <div
           className="hero-slideshow"
           style={
-            { "--hero-duration": `${HERO_SLIDES.length * 5}s` } as CSSProperties
+            { "--hero-duration": `${slides.length * 5}s` } as CSSProperties
           }
         >
-          {HERO_SLIDES.map((slide, index) => (
+          {slides.map((slide, index) => (
             <div
-              key={slide}
+              key={slide.url}
               className="hero-slide"
               style={{
-                backgroundImage: `url('${slide}')`,
+                backgroundImage: `url('${slide.url}')`,
                 animationDelay: `${index * 5}s`,
               }}
             />
@@ -41,50 +70,28 @@ export default function Home() {
 
       <div className="relative z-10 flex flex-col items-center">
 
-      
-      {/* THE LOGO 
-         The <Image /> component instead of <img> because it automatically optimizes the file size for us.
-         
-         object-contain: Ensures the logo doesn't get stretched if the width/height change.
-      */}
+      {/* THE LOGO */}
       <img 
         src="/circular_bees_logo.png" 
         alt="BEES Logo" 
         className="w-48 h-48 mb-8 object-contain" 
       />
 
-      {/* HEADLINE
-         font-extrabold: Makes the text very thick (good for headers).
-         text-green-800: Uses the dark green from your brand palette.
-      */}
+      {/* HEADLINE */}
       <h1 className="text-4xl sm:text-6xl font-extrabold text-white text-center leading-tight break-words px-4 mb-8">
       Black Economic Empowerment Society
       </h1>
       
-      {/* SUBTITLE
-         max-w-2xl: Restricts the width so the text doesn't stretch across the entire 
-         screen on wide monitors (which makes it hard to read).
-      */}
+      {/* SUBTITLE */}
       <p className="text-lg text-white/85 text-center max-w-md mx-auto mt-4 mb-8">
       Building wealth, fostering community, and creating opportunities for the future leaders of tomorrow.
       </p>
       
-      {/* CALL TO ACTION (CTA) BUTTONS 
-         flex gap-4: Puts the buttons side-by-side with space in between.
-      */}
+      {/* CALL TO ACTION (CTA) BUTTONS */}
       <div className="flex gap-4">
-        
-        {/* PRIMARY BUTTON (Filled)
-           Standard 'a' tags cause a full page refresh (screen flash).
-        */}
         <a href="/mission" className="px-6 py-3 bg-green-700 text-white font-bold rounded-lg hover:bg-green-800 transition">
           Our Mission
         </a>
-
-        {/* SECONDARY BUTTON (Outlined)
-           border-2: Adds the outline.
-           hover:bg-green-100: Adds a light tint when you hover, instead of a solid color change.
-        */}
         <a href="/events" className="px-6 py-3 border-2 border-white text-white font-bold rounded-lg hover:bg-green-400 transition">
           Upcoming Events
         </a>
