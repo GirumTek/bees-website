@@ -1,6 +1,15 @@
 import type { CSSProperties } from "react";
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
+import type { HeroSlide } from "@/sanity.types";
+
+export const metadata: Metadata = {
+  title: "BEES | Black Economic Empowerment Society",
+  description: "Building wealth, fostering community, and creating opportunities for Black students at UVA.",
+};
 
 // Fallback images if no Sanity slides exist yet
 const FALLBACK_SLIDES = [
@@ -8,39 +17,30 @@ const FALLBACK_SLIDES = [
   { url: "/hero/beesimg_petersburgteens2.png", alt: "BEES students" },
 ];
 
-interface HeroSlide {
-  _id: string;
-  image: any;
-  alt: string;
-  order: number;
-}
-
 async function getHeroSlides() {
   const query = `*[_type == "heroSlide"] | order(order asc) { _id, image, alt, order }`;
   return await client.fetch(query, {}, {
-    next: {
-      tags: ["heroSlide"],
-    },
+    next: { tags: ["heroSlide"] },
   });
 }
 
 export default async function Home() {
-  const sanitySlides: HeroSlide[] = await getHeroSlides();
+  // ERROR HANDLING: if Sanity is down, fall back to local images instead of crashing
+  let sanitySlides: HeroSlide[] = [];
+  try {
+    sanitySlides = await getHeroSlides();
+  } catch (error) {
+    console.error("Failed to load hero slides:", error);
+  }
 
-  // Use Sanity slides if available, otherwise fall back to local images
   const slides = sanitySlides.length > 0
     ? sanitySlides.map((slide) => ({
-        url: urlFor(slide.image).width(1920).quality(80).url(),
-        alt: slide.alt,
+        url: urlFor(slide.image!).width(1920).quality(80).url(),
+        alt: slide.alt ?? "BEES students",
       }))
     : FALLBACK_SLIDES;
 
   return (
-    /* MAIN CONTAINER
-       min-h-[calc(100vh-4rem)]: Ensures the hero section takes up the full height minus the navbar (4rem = 64px).
-       flex flex-col items-center justify-center: This is the "Flexbox Trick" to perfectly center content vertically and horizontally.
-       pt-16: Adds top padding to account for the sticky navbar.
-    */
     <main className="hero-page relative -mt-8 min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center text-center p-10 pt-16">
       <div
         aria-hidden="true"
@@ -48,9 +48,7 @@ export default async function Home() {
       >
         <div
           className="hero-slideshow"
-          style={
-            { "--hero-duration": `${slides.length * 5}s` } as CSSProperties
-          }
+          style={{ "--hero-duration": `${slides.length * 5}s` } as CSSProperties}
         >
           {slides.map((slide, index) => (
             <div
@@ -69,33 +67,31 @@ export default async function Home() {
       </div>
 
       <div className="relative z-10 flex flex-col items-center">
+        <Image
+          src="/circular_bees_logo.png"
+          alt="BEES Logo"
+          width={192}
+          height={192}
+          priority
+          className="mb-8 object-contain"
+        />
 
-      {/* THE LOGO */}
-      <img 
-        src="/circular_bees_logo.png" 
-        alt="BEES Logo" 
-        className="w-48 h-48 mb-8 object-contain" 
-      />
+        <h1 className="text-4xl sm:text-6xl font-extrabold text-white text-center leading-tight break-words px-4 mb-8">
+          Black Economic Empowerment Society
+        </h1>
 
-      {/* HEADLINE */}
-      <h1 className="text-4xl sm:text-6xl font-extrabold text-white text-center leading-tight break-words px-4 mb-8">
-      Black Economic Empowerment Society
-      </h1>
-      
-      {/* SUBTITLE */}
-      <p className="text-lg text-white/85 text-center max-w-md mx-auto mt-4 mb-8">
-      Building wealth, fostering community, and creating opportunities for the future leaders of tomorrow.
-      </p>
-      
-      {/* CALL TO ACTION (CTA) BUTTONS */}
-      <div className="flex gap-4">
-        <a href="/mission" className="px-6 py-3 bg-green-700 text-white font-bold rounded-lg hover:bg-green-800 transition">
-          Our Mission
-        </a>
-        <a href="/events" className="px-6 py-3 border-2 border-white text-white font-bold rounded-lg hover:bg-green-400 transition">
-          Upcoming Events
-        </a>
-      </div>
+        <p className="text-lg text-white/85 text-center max-w-md mx-auto mt-4 mb-8">
+          Building wealth, fostering community, and creating opportunities for the future leaders of tomorrow.
+        </p>
+
+        <div className="flex gap-4">
+          <Link href="/mission" className="px-6 py-3 bg-green-700 text-white font-bold rounded-lg hover:bg-green-800 transition">
+            Our Mission
+          </Link>
+          <Link href="/events" className="px-6 py-3 border-2 border-white text-white font-bold rounded-lg hover:bg-green-400 transition">
+            Upcoming Events
+          </Link>
+        </div>
       </div>
     </main>
   );

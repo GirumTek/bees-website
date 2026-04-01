@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Learn More | BEES",
+  description: "Everything you need to know about BEES — who we are, why we exist, and how you can be part of it.",
+};
 
 export default function LearnMorePage() {
   return (

@@ -1,8 +1,14 @@
+import type { Metadata } from "next";
 import { client } from "@/sanity/lib/client";
+import type { Event } from "@/sanity.types";
 import UpcomingEventCard from "@/components/UpcomingEventCard";
 import PastEventsGrid from "@/components/PastEventsGrid";
 
-// DATA FETCHING
+export const metadata: Metadata = {
+  title: "Events | BEES",
+  description: "See upcoming BEES events — workshops, socials, panels, and more — plus a look back at past events.",
+};
+
 async function getEventData() {
   const query = `{
     "upcoming": *[_type == "event" && date >= now()] | order(date asc),
@@ -11,9 +17,18 @@ async function getEventData() {
   return await client.fetch(query, {}, { next: { tags: ["event"] } });
 }
 
-// MAIN PAGE COMPONENT
 export default async function EventsPage() {
-  const { upcoming, past } = await getEventData();
+  // ERROR HANDLING: if Sanity is down, show empty state instead of crashing
+  let upcoming: Event[] = [];
+  let past: Event[] = [];
+
+  try {
+    const data = await getEventData();
+    upcoming = data.upcoming;
+    past = data.past;
+  } catch (error) {
+    console.error("Failed to load events:", error);
+  }
 
   return (
     <div className="bg-white min-h-screen p-6 md:p-10">
@@ -22,8 +37,13 @@ export default async function EventsPage() {
         <p className="text-center text-gray-500 mb-12 max-w-xl mx-auto">
           Check out what we have coming up — workshops, socials, panels, and more.
         </p>
+
         <div className="flex flex-col gap-12 mb-24">
-          {upcoming.map((event: any) => (<UpcomingEventCard key={event._id} event={event} />))}
+          {upcoming.length > 0 ? (
+            upcoming.map((event) => <UpcomingEventCard key={event._id} event={event} />)
+          ) : (
+            <p className="text-center text-gray-500">No upcoming events right now — stay tuned! 🐝</p>
+          )}
         </div>
 
         <div className="border-t border-gray-200 pt-16">
