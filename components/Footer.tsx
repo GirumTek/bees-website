@@ -102,8 +102,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-green-800 pt-6 text-center text-sm text-green-400">
           <p>
-            &copy; {new Date().getFullYear()} Black Economic Empowerment Society
-            (BEES) &middot; University of Virginia
+            &copy; {new Date().getFullYear()} Black Economic Empowerment Society (BEES) &middot; University of Virginia
           </p>
         </div>
       </div>
