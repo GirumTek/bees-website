@@ -26,40 +26,13 @@ Built with **Next.js 14**, **TypeScript**, **Tailwind CSS**, and **Sanity.io** (
 
 ---
 
-
-## 🛠️ Quick Start
-
-Run these commands in your terminal to set up the project from scratch.
-
-```bash
-# 1. Clone and enter the repository
-git clone https://github.com/GirumTek/bees-website.git
-cd bees-website
-
-# 2. Install dependencies
-npm install
-
-# 3. Create the environment file
-# (IMPORTANT: Replace 'your_project_id' below with your actual Sanity ID)
-echo "NEXT_PUBLIC_SANITY_PROJECT_ID= "your_project_id" > .env.local
-echo "NEXT_PUBLIC_SANITY_DATASET= "production" >> .env.local
-
-# 4. Start the development server
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
----
-
 ## 📝 Content Management (Sanity Studio)
 
 This project includes an embedded Sanity Studio for managing content.
 
-1.  Go to `http://localhost:3000/studio`
-2.  Login with your Sanity credentials.
-3.  **Events:** Add, edit, or remove upcoming events.
-4.  **Executive:** Update board member profiles and headshots.
+1.  **Home Page** Add pictures of past events and meetings.
+2.  **Events:** Add, edit, or remove upcoming events.
+3.  **Executive:** Update board member profiles and headshots.
 
 ---
 
