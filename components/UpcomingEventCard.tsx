@@ -4,10 +4,11 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
+import type { Event } from "@/sanity.types";
 
-export default function UpcomingEventCard({ event }: { event: any }) {
+export default function UpcomingEventCard({ event }: { event: Event }) {
   const [isOpen, setIsOpen] = useState(false);
-  const eventDate = new Date(event.date);
+  const eventDate = new Date(event.date || 0);
 
   return (
     <>
@@ -16,7 +17,7 @@ export default function UpcomingEventCard({ event }: { event: any }) {
           <div className="relative w-full md:w-1/3 h-64 md:h-auto bg-gray-50 cursor-pointer" onClick={() => setIsOpen(true)}>
             <Image
               src={urlFor(event.image).width(1000).url()}
-              alt={event.name}
+              alt={event.name ?? "Event image"}
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
               className="object-contain hover:scale-[1.02] transition-transform"
@@ -36,17 +37,17 @@ export default function UpcomingEventCard({ event }: { event: any }) {
             </div>
             <p className="text-green-700 font-semibold text-lg mb-0 leading-tight">📍 {event.location}</p>
             <div className="prose prose-green text-gray-600 max-w-none prose-p:m-0 mt-4"> {/* Increased spacing */}
-              <PortableText value={event.details} />
+              <PortableText value={event.details || []} />
             </div>
           </div>
         </div>
       </div>
 
-      {isOpen && (
+      {isOpen && event.image && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm" onClick={() => setIsOpen(false)}>
           <button className="absolute top-6 right-6 text-white text-3xl z-[110]">✕</button>
           <div className="relative w-full max-w-5xl h-full max-h-[85vh]">
-            <Image src={urlFor(event.image).url()} alt={event.name} fill sizes="100vw" className="object-contain" />
+            <Image src={urlFor(event.image).url()} alt={event.name ?? "Event image"} fill sizes="100vw" className="object-contain" />
           </div>
         </div>
       )}

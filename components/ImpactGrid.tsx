@@ -1,8 +1,9 @@
 'use client';
 
 import { PortableText } from "@portabletext/react";
+import type { Impact } from "@/sanity.types";
 
-export default function ImpactGrid({ items }: { items: any[] }) {
+export default function ImpactGrid({ items }: { items: Impact[] }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
       {items.map((item) => (

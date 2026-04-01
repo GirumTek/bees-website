@@ -4,9 +4,10 @@ import { useState } from 'react';
 import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
+import type { Event } from "@/sanity.types";
 
-export default function PastEventsGrid({ events }: { events: any[] }) {
-  const [selectedEvent, setSelectedEvent] = useState<any>(null);
+export default function PastEventsGrid({ events }: { events: Event[] }) {
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
 
   return (
     <>
