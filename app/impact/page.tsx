@@ -1,57 +1,31 @@
-export default function ImpactPage(){
-    const stats = [
-    {
-      label: "Active Members",
-      value: "50+",
-      description: "Dedicated students building their future."
-    },
-    {
-      label: "Workshops Hosted",
-      value: "12",
-      description: "Covering finance, coding, and leadership."
-    },
-    {
-      label: "Businesses Showcased",
-      value: "30+", 
-      description: "Providing a platform for Black entrepreneurs to sell and grow in our Pop-Up Shop Event."
-    },
-    
-  ];
+import { client } from "@/sanity/lib/client";
+import ImpactGrid from "@/components/ImpactGrid";
+
+async function getImpactData() {
+  // Fetches items in the order they were created
+  return await client.fetch(
+    `*[_type == "impact"] | order(_createdAt asc)`, 
+    {}, 
+    { next: { tags: ["impact"] } }
+  );
+}
+
+export default async function ImpactPage() {
+  const impactItems = await getImpactData();
+
   return (
-    <div className="bg-white min-h-screen p-10">
+    <div className="bg-white min-h-screen py-16 px-6 md:px-10">
       <div className="max-w-7xl mx-auto text-center">
         
-        {/* Header */}
-        <h1 className="text-4xl font-bold text-green-800 mb-6">Our Impact</h1>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-16">
+        {/* Header Section */}
+        <h1 className="text-5xl font-bold text-green-900 mb-4">Our Impact</h1>
+        <p className="text-gray-500 max-w-2xl mx-auto mb-16 text-lg">
           BEES is dedicated to tangible results. Here is how we are making a difference in the community and on campus.
         </p>
 
-     {/* The Stats Container (Flexbox for perfect centering) */}
-        <div className="flex flex-wrap justify-center gap-8">
-          {stats.map((stat, index) => (
-            <div 
-              key={index} 
-              className="p-8 rounded-2xl bg-green-50 border-2 border-green-100 shadow-lg hover:-translate-y-2 transition-transform duration-300 w-full md:w-[350px]"
-            >
-              {/* Big Number */}
-              <div className="text-5xl font-extrabold text-green-700 mb-2">
-                {stat.value}
-              </div>
-              
-              {/* Label */}
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
-                {stat.label}
-              </h3>
-              
-              {/* Description */}
-              <p className="text-gray-600 text-sm">
-                {stat.description}
-              </p>
-            </div>
-          ))}
-        </div>
-
+        {/* Interactive Grid Component */}
+        <ImpactGrid items={impactItems} />
+        
       </div>
     </div>
   );

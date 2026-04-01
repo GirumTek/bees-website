@@ -11,6 +11,7 @@ export async function POST(req: NextRequest) {
       
       if (tag === 'event') revalidatePath('/events');
       if (tag === 'executive') revalidatePath('/exec');
+      if (tag === 'impact') revalidatePath('/impact');
 
       return NextResponse.json({ revalidated: true, tag, now: Date.now() });
     }
