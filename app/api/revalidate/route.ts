@@ -1,21 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
-import { revalidateTag, revalidatePath } from "next/cache"; // Import revalidatePath
+import { revalidateTag, revalidatePath } from "next/cache";
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const tag = body?._type;
 
-    console.log("REVALIDATE TRIGGERED. Payload:", body);
-
     if (tag) {
-      
-      revalidateTag(tag,"max");
-      
+      revalidateTag(tag,"max"); 
       
       if (tag === 'event') revalidatePath('/events');
       if (tag === 'executive') revalidatePath('/exec');
-      if (tag === 'heroSlide') revalidatePath('/');
 
       return NextResponse.json({ revalidated: true, tag, now: Date.now() });
     }
