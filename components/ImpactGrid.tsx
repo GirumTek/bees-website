@@ -23,7 +23,7 @@ export default function ImpactGrid({ items }: { items: Impact[] }) {
           
           {/* 3. The Full Description */}
           <div className="text-gray-600 leading-relaxed prose prose-sm prose-green">
-             <PortableText value={item.description} />
+             <PortableText value={item.description ?? []} />
           </div>
         </div>
       ))}
