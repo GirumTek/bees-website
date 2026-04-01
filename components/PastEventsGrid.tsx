@@ -24,7 +24,7 @@ export default function PastEventsGrid({ events }: { events: any[] }) {
             )}
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 p-6">
               <h3 className="text-white font-bold text-xl">{event.name}</h3>
-              <p className="text-green-400 text-sm">{new Date(event.date).toLocaleDateString("en-US", { month: "long", year: "numeric" })}</p>
+              <p className="text-green-400 text-sm">{new Date(event.date).toLocaleDateString("en-US", { month: "long",day : "2-digit", year: "numeric" })}</p>
             </div>
           </div>
         ))}
