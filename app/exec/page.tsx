@@ -29,16 +29,16 @@ export default async function ExecPage() {
       <h1 className="text-4xl font-bold text-center text-green-800 mb-12">Meet the Executive Board</h1>
 
       {team.length > 0 ? (
-        <div className="flex flex-wrap justify-center gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
           {team.map((member, index) => (
-            <div key={member._id} className="w-full sm:w-80 bg-white rounded-3xl shadow-lg border-2 border-green-600 overflow-hidden flex flex-col">
+            <div key={member._id} className="bg-white rounded-3xl shadow-lg border-2 border-green-600 overflow-hidden flex flex-col">
               <div className="h-96 relative bg-gray-200">
                 {member.image && (
                   <Image
                     src={urlFor(member.image).width(800).url()}
                     alt={member.name ?? "Board member"}
                     fill
-                    sizes="(max-width: 640px) 100vw, 320px"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     priority={index < 3}
                     className="object-cover object-top hover:scale-105 transition-transform duration-500"
                   />

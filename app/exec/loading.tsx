@@ -6,9 +6,9 @@ export default function ExecLoading() {
       <div className="h-10 bg-gray-200 rounded-full w-80 mx-auto mb-12" />
 
       {/* Card skeletons */}
-      <div className="flex flex-wrap justify-center gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
         {[1, 2, 3, 4].map((i) => (
-          <div key={i} className="w-full sm:w-80 bg-white rounded-3xl shadow-lg border-2 border-gray-100 overflow-hidden flex flex-col">
+          <div key={i} className="bg-white rounded-3xl shadow-lg border-2 border-gray-100 overflow-hidden flex flex-col">
             {/* Photo placeholder */}
             <div className="h-96 bg-gray-200" />
             {/* Text placeholder */}
