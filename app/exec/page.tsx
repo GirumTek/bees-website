@@ -25,7 +25,7 @@ export default async function ExecPage() {
   }
 
   return (
-    <div className="bg-white min-h-screen py-10 px-4 sm:px-6 flex flex-col items-center w-full max-w-7xl mx-auto">
+    <div className="bg-white min-h-screen py-10 flex flex-col items-center w-full max-w-7xl mx-auto">
       <h1 className="text-4xl font-bold text-center text-green-800 mb-12">Meet the Executive Board</h1>
 
       {team.length > 0 ? (

@@ -1,6 +1,6 @@
 export default function ExecLoading() {
   return (
-    <div className="bg-white min-h-screen p-10 flex flex-col items-center w-full max-w-7xl mx-auto animate-pulse">
+    <div className="bg-white min-h-screen py-10 flex flex-col items-center w-full max-w-7xl mx-auto animate-pulse">
 
       {/* Title skeleton */}
       <div className="h-10 bg-gray-200 rounded-full w-80 mx-auto mb-12" />
