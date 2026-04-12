@@ -13,20 +13,20 @@
   background-repeat: no-repeat;
   opacity: 0;
   will-change: opacity;
-  animation: heroFade var(--hero-duration, 30s) infinite ease-in-out;
+  animation: heroFade var(--hero-duration, 10s) infinite ease-in-out;
 }
 
 @keyframes heroFade {
   0% {
     opacity: 0;
   }
-  10% {
+  8% {
     opacity: 1;
   }
-  45% {
+  42% {
     opacity: 1;
   }
-  55% {
+  50% {
     opacity: 0;
   }
   100% {

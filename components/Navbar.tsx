@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -8,6 +9,13 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [whoWeAreOpen, setWhoWeAreOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+
+  // Close mobile menu on route change (e.g. browser back button)
+  useEffect(() => {
+    setIsOpen(false);
+    setWhoWeAreOpen(false);
+  }, [pathname]);
 
   // Close dropdown when clicking outside
   useEffect(() => {

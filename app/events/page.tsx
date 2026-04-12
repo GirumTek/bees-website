@@ -40,7 +40,7 @@ export default async function EventsPage() {
 
         <div className="flex flex-col gap-12 mb-24">
           {upcoming.length > 0 ? (
-            upcoming.map((event) => <UpcomingEventCard key={event._id} event={event} />)
+            upcoming.map((event, index) => <UpcomingEventCard key={event._id} event={event} priority={index === 0} />)
           ) : (
             <p className="text-center text-gray-500">No upcoming events right now — stay tuned! 🐝</p>
           )}

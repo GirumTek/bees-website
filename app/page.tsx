@@ -48,7 +48,7 @@ export default async function Home() {
       >
         <div
           className="hero-slideshow"
-          style={{ "--hero-duration": `${slides.length * 5}s` } as CSSProperties}
+        style={{ "--hero-duration": `${slides.length * 10}s` } as CSSProperties}
         >
           {slides.map((slide, index) => (
             <div
@@ -56,7 +56,7 @@ export default async function Home() {
               className="hero-slide"
               style={{
                 backgroundImage: `url('${slide.url}')`,
-                animationDelay: `${index * 5}s`,
+                animationDelay: `${index * 10}s`,
               }}
             />
           ))}

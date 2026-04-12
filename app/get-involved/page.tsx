@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function GetInvolvedPage() {
   return (
-    <div className="bg-white min-h-screen p-10">
+    <div className="bg-white min-h-screen py-10 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-4xl font-bold text-center text-green-800 mb-4">
           Get Involved

@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="bg-green-900 text-white mt-16">
       <div className="max-w-7xl mx-auto px-6 py-12">
         {/* Top section: Branding left, Link columns right */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-12 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12 mb-12 items-start">
           {/* About */}
           <div>
             <h3 className="font-bold text-green-300 mb-4 text-sm uppercase tracking-wider">

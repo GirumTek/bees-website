@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function MissionPage() {
   return (
-    <div className="p-10 max-w-7xl mx-auto">
+    <div className="py-10 px-4 sm:px-6 max-w-7xl mx-auto">
       {/* ═══════════════════════════════════════════════
           SECTION 1 — OUR MISSION
       ═══════════════════════════════════════════════ */}
