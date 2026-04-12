@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Mission | BEES",
+  description: "Learn about the mission, core values, and story behind the Black Economic Empowerment Society at UVA.",
+};
+
 export default function MissionPage() {
   return (
     <div className="p-10 max-w-7xl mx-auto">
@@ -28,8 +35,8 @@ export default function MissionPage() {
       {/* ═══════════════════════════════════════════════
           SECTION 2 — OUR STORY
       ═══════════════════════════════════════════════ */}
-      <section className="text-center">
-        <h2 id="our-story" className="text-4xl font-bold text-green-800 mb-6 scroll-mt-20">Our Story</h2>
+      <section className="text-center" id="our-story">
+        <h2 className="text-4xl font-bold text-green-800 mb-6 scroll-mt-20">Our Story</h2>
         <p className="text-xl leading-relaxed text-gray-700 max-w-3xl mx-auto mb-6">
           The Black Economic Empowerment Society (BEES) was founded by{" "}
           <strong className="text-green-800">Syrell Grier</strong> with a bold
@@ -38,10 +45,9 @@ export default function MissionPage() {
           generational wealth and uplift their communities.
         </p>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
-          Since its founding{" "}
-          <span className="italic text-gray-400">[founding year — placeholder]</span>,
-          BEES has grown into a vibrant community of students passionate about
-          economic justice, career readiness, and collective empowerment.
+          Since its founding, BEES has grown into a vibrant community of students
+          passionate about financial literacy, career readiness, and collective
+          empowerment.
         </p>
 
         <div className="mt-10 p-8 bg-green-50 rounded-xl border border-green-200 max-w-3xl mx-auto">
@@ -51,13 +57,6 @@ export default function MissionPage() {
               <span className="text-green-600 font-bold text-lg">🐝</span>
               <span>
                 <strong>Founded</strong> by Syrell Grier at the University of Virginia
-              </span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-green-600 font-bold text-lg">📌</span>
-              <span className="italic text-gray-400">
-                [Additional milestones — placeholder. Add key events, growth
-                moments, partnerships, or achievements here.]
               </span>
             </li>
           </ul>

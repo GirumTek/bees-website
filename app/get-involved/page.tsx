@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Get Involved | BEES",
+  description: "Join the Black Economic Empowerment Society at UVA — explore membership options, the application process, and our committees.",
+};
+
 export default function GetInvolvedPage() {
   return (
     <div className="bg-white min-h-screen p-10">
@@ -82,15 +89,13 @@ export default function GetInvolvedPage() {
             semester. Fill out our interest form to stay updated on application timelines and
             requirements.
           </p>
+          {/* TODO: Replace href="#" with link */}
           <a
             href="#"
             className="inline-block px-8 py-3 bg-green-700 text-white font-bold rounded-lg hover:bg-green-800 transition"
           >
             Apply / Interest Form
           </a>
-          <p className="text-sm text-gray-400 mt-3 italic">
-            [Placeholder — replace &quot;#&quot; with your actual application or interest form link]
-          </p>
         </div>
 
         {/* ═══════════════════════════════════════════════
@@ -117,7 +122,7 @@ export default function GetInvolvedPage() {
             <div className="p-6 bg-white rounded-2xl shadow-lg border border-gray-200 hover:border-green-300 transition">
               <div className="text-3xl mb-3">💰</div>
               <h3 className="text-xl font-bold text-green-800 mb-2">
-                Finance / Financial Literacy Committee
+                Finance Committee
               </h3>
               <p className="text-gray-600">
                 Develops educational content around budgeting, investing, credit, and
