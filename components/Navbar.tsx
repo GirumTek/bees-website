@@ -50,8 +50,13 @@ export default function Navbar() {
           <div className="hidden md:block">
             <div className="flex items-baseline space-x-4">
 
-              {/* WHO WE ARE DROPDOWN */}
-              <div className="relative" ref={dropdownRef}>
+              {/* WHO WE ARE DROPDOWN — opens on hover on desktop */}
+              <div
+                className="relative group"
+                ref={dropdownRef}
+                onMouseEnter={() => setWhoWeAreOpen(true)}
+                onMouseLeave={() => setWhoWeAreOpen(false)}
+              >
                 <button
                   onClick={() => setWhoWeAreOpen(!whoWeAreOpen)}
                   className="flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium hover:bg-green-600 hover:text-white transition"
