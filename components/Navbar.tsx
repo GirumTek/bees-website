@@ -71,7 +71,7 @@ export default function Navbar() {
                 </button>
 
                 {whoWeAreOpen && (
-                  <div className="absolute left-0 mt-1 w-44 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden z-50">
+                  <div className="absolute left-0 top-full w-44 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden z-50">
                     <DropdownLink href="/mission" onClick={() => setWhoWeAreOpen(false)}>
                       🎯 Mission
                     </DropdownLink>
