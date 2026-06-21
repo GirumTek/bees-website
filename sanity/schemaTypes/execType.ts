@@ -9,11 +9,13 @@ export const execType = defineType({
       name: 'name',
       title: 'Name',
       type: 'string',
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'role',
       title: 'Role',
       type: 'string',
+      validation: (rule) => rule.required(),
     }),
   
     defineField({
@@ -32,4 +34,10 @@ export const execType = defineType({
       },
     }),
   ],
+  preview: {
+    select: {
+      title: 'name',
+      subtitle: 'role',
+    },
+  },
 })

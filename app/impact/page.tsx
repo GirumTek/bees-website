@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 async function getImpactData() {
   return await client.fetch(
-    `*[_type == "impact"] | order(_createdAt asc)`,
+    `*[_type == "impact"] | order(coalesce(order, 999) asc)`,
     {},
     { next: { tags: ["impact"] } }
   );
