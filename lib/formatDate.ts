@@ -1,7 +1,7 @@
 export function formatEventDate(dateString: string): string {
   return new Date(dateString).toLocaleDateString("en-US", {
     month: "long",
-    day: "numeric",
+    day: "2-digit",
     year: "numeric",
   });
 }

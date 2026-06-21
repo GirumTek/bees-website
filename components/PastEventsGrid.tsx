@@ -5,6 +5,7 @@ import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import type { EVENTS_QUERY_RESULT } from "@/sanity.types";
+import { formatEventDate } from "@/lib/formatDate";
 
 type EventItem = EVENTS_QUERY_RESULT["past"][number];
 
@@ -73,7 +74,7 @@ export default function PastEventsGrid({ events }: { events: EventItem[] }) {
             )}
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 p-6">
               <h3 className="text-white font-bold text-xl">{event.name}</h3>
-              <p className="text-green-400 text-sm">{new Date(event.date??"").toLocaleDateString("en-US", { month: "long",day : "2-digit", year: "numeric" })}</p>
+              <p className="text-green-400 text-sm">{formatEventDate(event.date ?? "")}</p>
             </div>
           </button>
         ))}
