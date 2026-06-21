@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Button from "@/components/Button";
 
 export const metadata: Metadata = {
   title: "Page Not Found | BEES",
@@ -13,12 +13,9 @@ export default function NotFound() {
       <p className="text-gray-500 mb-8 max-w-md">
         Looks like this page flew away. Let&apos;s get you back to the hive.
       </p>
-      <Link
-        href="/"
-        className="px-6 py-3 bg-green-700 text-white font-bold rounded-lg hover:bg-green-800 transition"
-      >
+      <Button href="/" className="font-bold">
         Back to Home
-      </Link>
+      </Button>
     </div>
   );
 }

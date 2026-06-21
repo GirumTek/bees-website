@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand: #166534;
+}
+
 .hero-slideshow {
   position: absolute;
   inset: 0;

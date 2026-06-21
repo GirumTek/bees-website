@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Button from "@/components/Button";
 
 export const metadata: Metadata = {
   title: "Get Involved | BEES",
@@ -90,12 +91,9 @@ export default function GetInvolvedPage() {
             requirements.
           </p>
           {/* TODO: Replace href="#" with link */}
-          <a
-            href="#"
-            className="inline-block px-8 py-3 bg-green-700 text-white font-bold rounded-lg hover:bg-green-800 transition"
-          >
+          <Button href="#" className="inline-block px-8 font-bold">
             Apply / Interest Form
-          </a>
+          </Button>
         </div>
 
         {/* ═══════════════════════════════════════════════

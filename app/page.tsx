@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import Button from "@/components/Button";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import type { HeroSlide } from "@/sanity.types";
@@ -85,9 +86,9 @@ export default async function Home() {
         </p>
 
         <div className="flex gap-4">
-          <Link href="/mission" className="px-6 py-3 bg-green-700 text-white font-bold rounded-lg hover:bg-green-800 transition">
+          <Button href="/mission" className="font-bold">
             Our Mission
-          </Link>
+          </Button>
           <Link href="/events" className="px-6 py-3 border-2 border-white text-white font-bold rounded-lg hover:bg-green-400 transition">
             Upcoming Events
           </Link>

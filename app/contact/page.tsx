@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Button from "@/components/Button";
 
 export const metadata: Metadata = {
   title: "Contact | BEES",
@@ -22,12 +23,9 @@ export default function ContactPage() {
         <div className="mb-8 text-center">
           <h2 className="text-xl font-bold text-gray-800 mb-2">📧 Email Us</h2>
           <p className="text-gray-600 mb-3">For general inquiries and partnerships:</p>
-          <a
-            href="mailto:beesatuva@gmail.com"
-            className="inline-block bg-green-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-800 transition"
-          >
+          <Button href="mailto:beesatuva@gmail.com" className="inline-block font-bold">
             Email the Board
-          </a>
+          </Button>
         </div>
 
         <hr className="border-gray-200 my-6" />
