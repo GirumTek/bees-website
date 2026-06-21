@@ -1,22 +1,26 @@
 import type { Metadata } from "next";
+import { defineQuery } from "next-sanity";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
-import type { Executive } from "@/sanity.types";
+import type { EXEC_QUERY_RESULT } from "@/sanity.types";
 
 export const metadata: Metadata = {
   title: "Executive Board | BEES",
   description: "Meet the leadership team driving the Black Economic Empowerment Society at UVA forward.",
 };
 
+const EXEC_QUERY = defineQuery(
+  `*[_type == "executive"] | order(coalesce(orderRank, 999) asc) { _id, name, role, image, orderRank }`
+);
+
 async function getTeam() {
-  const query = `*[_type == "executive"] | order(coalesce(orderRank, 999) asc)`;
-  return await client.fetch(query, {}, { next: { tags: ["executive"] } });
+  return await client.fetch(EXEC_QUERY, {}, { next: { tags: ["executive"] } });
 }
 
 export default async function ExecPage() {
   // ERROR HANDLING: if Sanity is down, show empty state instead of crashing
-  let team: Executive[] = [];
+  let team: EXEC_QUERY_RESULT = [];
 
   try {
     team = await getTeam();

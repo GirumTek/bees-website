@@ -41,6 +41,7 @@ export type Impact = {
     _type: "block";
     _key: string;
   }>;
+  order?: number;
 };
 
 export type SanityImageAssetReference = {
@@ -257,3 +258,143 @@ export type AllSanitySchemaTypes =
   | SanityAssetSourceData
   | SanityImageAsset
   | Geopoint;
+
+// Source: app/events/page.tsx
+// Variable: EVENTS_QUERY
+// Query: {  "upcoming": *[_type == "event" && date >= now()] | order(date asc) { _id, name, date, location, image, details },  "past": *[_type == "event" && date < now()] | order(date desc) { _id, name, date, location, image, details }}
+export type EVENTS_QUERY_RESULT = {
+  upcoming: Array<{
+    _id: string;
+    name: string | null;
+    date: string | null;
+    location: string | null;
+    image: {
+      asset?: SanityImageAssetReference;
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    } | null;
+    details: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+  }>;
+  past: Array<{
+    _id: string;
+    name: string | null;
+    date: string | null;
+    location: string | null;
+    image: {
+      asset?: SanityImageAssetReference;
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    } | null;
+    details: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+  }>;
+};
+
+// Source: app/exec/page.tsx
+// Variable: EXEC_QUERY
+// Query: *[_type == "executive"] | order(coalesce(orderRank, 999) asc) { _id, name, role, image, orderRank }
+export type EXEC_QUERY_RESULT = Array<{
+  _id: string;
+  name: string | null;
+  role: string | null;
+  image: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
+  orderRank: number | null;
+}>;
+
+// Source: app/impact/page.tsx
+// Variable: IMPACT_QUERY
+// Query: *[_type == "impact"] | order(coalesce(order, 999) asc) { _id, stat, title, description, order }
+export type IMPACT_QUERY_RESULT = Array<{
+  _id: string;
+  stat: string | null;
+  title: string | null;
+  description: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  order: number | null;
+}>;
+
+// Source: app/page.tsx
+// Variable: HERO_SLIDES_QUERY
+// Query: *[_type == "heroSlide"] | order(order asc) { _id, image, alt, order }
+export type HERO_SLIDES_QUERY_RESULT = Array<{
+  _id: string;
+  image: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
+  alt: string | null;
+  order: number | null;
+}>;
+
+// Query TypeMap
+import "@sanity/client";
+declare module "@sanity/client" {
+  interface SanityQueries {
+    '{\n  "upcoming": *[_type == "event" && date >= now()] | order(date asc) { _id, name, date, location, image, details },\n  "past": *[_type == "event" && date < now()] | order(date desc) { _id, name, date, location, image, details }\n}': EVENTS_QUERY_RESULT;
+    '*[_type == "executive"] | order(coalesce(orderRank, 999) asc) { _id, name, role, image, orderRank }': EXEC_QUERY_RESULT;
+    '*[_type == "impact"] | order(coalesce(order, 999) asc) { _id, stat, title, description, order }': IMPACT_QUERY_RESULT;
+    '*[_type == "heroSlide"] | order(order asc) { _id, image, alt, order }': HERO_SLIDES_QUERY_RESULT;
+  }
+}

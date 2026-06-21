@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import { defineQuery } from "next-sanity";
 import { client } from "@/sanity/lib/client";
-import type { Impact } from "@/sanity.types";
+import type { Impact, IMPACT_QUERY_RESULT } from "@/sanity.types";
 import ImpactGrid from "@/components/ImpactGrid";
 
 export const metadata: Metadata = {
@@ -8,17 +9,17 @@ export const metadata: Metadata = {
   description: "See the tangible difference the Black Economic Empowerment Society is making on campus and in the community.",
 };
 
+const IMPACT_QUERY = defineQuery(
+  `*[_type == "impact"] | order(coalesce(order, 999) asc) { _id, stat, title, description, order }`
+);
+
 async function getImpactData() {
-  return await client.fetch(
-    `*[_type == "impact"] | order(coalesce(order, 999) asc)`,
-    {},
-    { next: { tags: ["impact"] } }
-  );
+  return await client.fetch(IMPACT_QUERY, {}, { next: { tags: ["impact"] } });
 }
 
 export default async function ImpactPage() {
   // ERROR HANDLING: if Sanity is down, show empty state instead of crashing
-  let impactItems: Impact[] = [];
+  let impactItems: IMPACT_QUERY_RESULT = [];
 
   try {
     impactItems = await getImpactData();
@@ -34,8 +35,9 @@ export default async function ImpactPage() {
           BEES is dedicated to tangible results. Here is how we are making a difference in the community and on grounds.
         </p>
 
+        {/* ImpactGrid still consumes the full document type; the projection is a runtime subset of it */}
         {impactItems.length > 0 ? (
-          <ImpactGrid items={impactItems} />
+          <ImpactGrid items={impactItems as unknown as Impact[]} />
         ) : (
           <p className="text-center text-gray-500">
             Impact stats unavailable right now — check back soon!

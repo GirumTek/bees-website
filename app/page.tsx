@@ -3,9 +3,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/Button";
+import { defineQuery } from "next-sanity";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
-import type { HeroSlide } from "@/sanity.types";
+import type { HERO_SLIDES_QUERY_RESULT } from "@/sanity.types";
 
 export const metadata: Metadata = {
   title: "BEES | Black Economic Empowerment Society",
@@ -18,16 +19,19 @@ const FALLBACK_SLIDES = [
   { url: "/hero/beesimg_petersburgteens2.png", alt: "BEES students" },
 ];
 
+const HERO_SLIDES_QUERY = defineQuery(
+  `*[_type == "heroSlide"] | order(order asc) { _id, image, alt, order }`
+);
+
 async function getHeroSlides() {
-  const query = `*[_type == "heroSlide"] | order(order asc) { _id, image, alt, order }`;
-  return await client.fetch(query, {}, {
+  return await client.fetch(HERO_SLIDES_QUERY, {}, {
     next: { tags: ["heroSlide"] },
   });
 }
 
 export default async function Home() {
   // ERROR HANDLING: if Sanity is down, fall back to local images instead of crashing
-  let sanitySlides: HeroSlide[] = [];
+  let sanitySlides: HERO_SLIDES_QUERY_RESULT = [];
   try {
     sanitySlides = await getHeroSlides();
   } catch (error) {
