@@ -43,6 +43,8 @@ export default function Navbar() {
               <div className="relative" ref={dropdownRef}>
                 <button
                   onClick={() => setWhoWeAreOpen(!whoWeAreOpen)}
+                  aria-expanded={whoWeAreOpen}
+                  aria-haspopup="true"
                   className="flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium hover:bg-green-600 hover:text-white transition"
                 >
                   Who We Are
@@ -75,6 +77,7 @@ export default function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
+              aria-expanded={isOpen}
               className="inline-flex items-center justify-center p-2 rounded-md text-green-200 hover:text-white hover:bg-green-600 focus:outline-none transition"
             >
               <span className="sr-only">Open main menu</span>

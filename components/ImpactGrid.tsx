@@ -1,5 +1,3 @@
-'use client';
-
 import { PortableText } from "@portabletext/react";
 import type { Impact } from "@/sanity.types";
 
@@ -17,9 +15,9 @@ export default function ImpactGrid({ items }: { items: Impact[] }) {
           </div>
           
           {/* 2. The Metric / Heading (e.g., Active Members) */}
-          <h3 className="text-2xl font-bold text-slate-800 mb-4">
+          <h2 className="text-2xl font-bold text-slate-800 mb-4">
             {item.title}
-          </h3>
+          </h2>
           
           {/* 3. The Full Description */}
           <div className="text-gray-600 leading-relaxed prose prose-sm prose-green">
