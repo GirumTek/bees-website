@@ -23,7 +23,7 @@ export default function MissionPage() {
         </p>
 
         <div className="p-8 bg-green-50 rounded-xl border border-green-200 max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold mb-4 text-green-700">Core Values</h2>
+          <h2 className="text-2xl font-bold mb-4 text-green-900">Core Values</h2>
           <ul className="list-none space-y-3 text-lg text-gray-700">
             <li>🌱 <strong>Economic Literacy</strong> — Building financial freedom.</li>
             <li>🤝 <strong>Community Support</strong> — Lifting as we climb.</li>
@@ -36,7 +36,7 @@ export default function MissionPage() {
           SECTION 2 — OUR STORY
       ═══════════════════════════════════════════════ */}
       <section className="text-center" id="our-story">
-        <h2 className="text-4xl font-bold text-green-800 mb-6 scroll-mt-20">Our Story</h2>
+        <h2 className="text-4xl font-bold text-green-900 mb-6 scroll-mt-20">Our Story</h2>
         <p className="text-xl leading-relaxed text-gray-700 max-w-3xl mx-auto mb-6">
           The Black Economic Empowerment Society (BEES) was founded by{" "}
           <strong className="text-green-800">Syrell Grier</strong> with a bold
@@ -51,7 +51,7 @@ export default function MissionPage() {
         </p>
 
         <div className="mt-10 p-8 bg-green-50 rounded-xl border border-green-200 max-w-3xl mx-auto">
-          <h3 className="text-xl font-bold text-green-700 mb-4">Key Milestones</h3>
+          <h3 className="text-xl font-bold text-green-900 mb-4">Key Milestones</h3>
           <ul className="space-y-3 text-gray-700 text-left">
             <li className="flex items-start gap-3">
               <span className="text-green-600 font-bold text-lg">🐝</span>

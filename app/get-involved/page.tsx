@@ -25,7 +25,7 @@ export default function GetInvolvedPage() {
           <div className="p-8 bg-green-50 rounded-2xl border-2 border-green-200">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-3xl">🌿</span>
-              <h2 className="text-2xl font-bold text-green-800">General Membership</h2>
+              <h2 className="text-2xl font-bold text-green-900">General Membership</h2>
             </div>
             <p className="text-gray-700 leading-relaxed mb-4">
               Open to all students — no application required. As a general member, you can:
@@ -54,7 +54,7 @@ export default function GetInvolvedPage() {
           <div className="p-8 bg-green-50 rounded-2xl border-2 border-green-600">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-3xl">🐝</span>
-              <h2 className="text-2xl font-bold text-green-800">Active Membership</h2>
+              <h2 className="text-2xl font-bold text-green-900">Active Membership</h2>
             </div>
             <p className="text-gray-700 leading-relaxed mb-4">
               For students ready to take on a bigger role. Active members apply and are selected to:
@@ -84,7 +84,7 @@ export default function GetInvolvedPage() {
             APPLICATION PROCESS
         ═══════════════════════════════════════════════ */}
         <div className="text-center mb-20 p-8 bg-gray-50 rounded-2xl border border-gray-200 max-w-2xl mx-auto">
-          <h2 className="text-2xl font-bold text-green-800 mb-4">📝 How to Apply</h2>
+          <h2 className="text-2xl font-bold text-green-900 mb-4">📝 How to Apply</h2>
           <p className="text-gray-700 leading-relaxed mb-6">
             Interested in becoming an active member? Applications open at the beginning of each
             semester. Fill out our interest form to stay updated on application timelines and
@@ -100,7 +100,7 @@ export default function GetInvolvedPage() {
             OUR COMMITTEES
         ═══════════════════════════════════════════════ */}
         <section>
-          <h2 id="committees" className="text-3xl font-bold text-center text-green-800 mb-4 scroll-mt-20">
+          <h2 id="committees" className="text-3xl font-bold text-center text-green-900 mb-4 scroll-mt-20">
             Our Committees
           </h2>
           <p className="text-center text-gray-500 mb-10 max-w-xl mx-auto">
@@ -110,7 +110,7 @@ export default function GetInvolvedPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div className="p-6 bg-white rounded-2xl shadow-lg border border-gray-200 hover:border-green-300 transition">
               <div className="text-3xl mb-3">📅</div>
-              <h3 className="text-xl font-bold text-green-800 mb-2">Events Committee</h3>
+              <h3 className="text-xl font-bold text-green-900 mb-2">Events Committee</h3>
               <p className="text-gray-600">
                 Plans and executes BEES&apos;s signature events: from workshops and panels to
                 socials and networking nights. This committee brings our programming to life.
@@ -119,7 +119,7 @@ export default function GetInvolvedPage() {
 
             <div className="p-6 bg-white rounded-2xl shadow-lg border border-gray-200 hover:border-green-300 transition">
               <div className="text-3xl mb-3">💰</div>
-              <h3 className="text-xl font-bold text-green-800 mb-2">
+              <h3 className="text-xl font-bold text-green-900 mb-2">
                 Finance Committee
               </h3>
               <p className="text-gray-600">
@@ -130,7 +130,7 @@ export default function GetInvolvedPage() {
 
             <div className="p-6 bg-white rounded-2xl shadow-lg border border-gray-200 hover:border-green-300 transition">
               <div className="text-3xl mb-3">📣</div>
-              <h3 className="text-xl font-bold text-green-800 mb-2">
+              <h3 className="text-xl font-bold text-green-900 mb-2">
                 Marketing &amp; Outreach Committee
               </h3>
               <p className="text-gray-600">

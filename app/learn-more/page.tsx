@@ -21,13 +21,13 @@ export default function LearnMorePage() {
             WHY BEES? — Core value proposition
         ═══════════════════════════════════════════════ */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold text-center text-green-800 mb-10">
+          <h2 className="text-3xl font-bold text-center text-green-900 mb-10">
             Why BEES?
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="p-8 bg-white rounded-2xl shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold text-green-700 mb-4">
+              <h3 className="text-2xl font-bold text-green-900 mb-4">
                 🌟 Why Should I Join?
               </h3>
               <p className="text-gray-700 leading-relaxed">
@@ -38,7 +38,7 @@ export default function LearnMorePage() {
             </div>
 
             <div className="p-8 bg-white rounded-2xl shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold text-green-700 mb-4">
+              <h3 className="text-2xl font-bold text-green-900 mb-4">
                 🤝 Who Is BEES For?
               </h3>
               <p className="text-gray-700 leading-relaxed">
@@ -49,7 +49,7 @@ export default function LearnMorePage() {
             </div>
 
             <div className="p-8 bg-white rounded-2xl shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold text-green-700 mb-4">
+              <h3 className="text-2xl font-bold text-green-900 mb-4">
                 💡 How Are We Different?
               </h3>
               <p className="text-gray-700 leading-relaxed">
@@ -60,7 +60,7 @@ export default function LearnMorePage() {
             </div>
 
             <div className="p-8 bg-white rounded-2xl shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold text-green-700 mb-4">
+              <h3 className="text-2xl font-bold text-green-900 mb-4">
                 🚀 Skills &amp; Leadership
               </h3>
               <p className="text-gray-700 leading-relaxed">
@@ -76,7 +76,7 @@ export default function LearnMorePage() {
             EXPLORE MORE — Quick links to key pages
         ═══════════════════════════════════════════════ */}
         <section>
-          <h2 className="text-3xl font-bold text-center text-green-800 mb-10">
+          <h2 className="text-3xl font-bold text-center text-green-900 mb-10">
             Explore More
           </h2>
 
@@ -141,7 +141,7 @@ function PageLink({
       className="block p-6 bg-green-50 rounded-2xl border-2 border-green-200 hover:border-green-500 hover:shadow-lg transition group"
     >
       <div className="text-3xl mb-3">{emoji}</div>
-      <h3 className="text-xl font-bold text-green-800 mb-2 group-hover:text-green-600 transition">
+      <h3 className="text-xl font-bold text-green-900 mb-2 group-hover:text-green-600 transition">
         {title}
       </h3>
       <p className="text-gray-600 text-sm">{description}</p>
