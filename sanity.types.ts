@@ -109,7 +109,6 @@ export type Event = {
   _updatedAt: string;
   _rev: string;
   name?: string;
-  slug?: Slug;
   date?: string;
   location?: string;
   image?: {
@@ -137,12 +136,6 @@ export type Event = {
     _type: "block";
     _key: string;
   }>;
-};
-
-export type Slug = {
-  _type: "slug";
-  current?: string;
-  source?: string;
 };
 
 export type SanityImagePaletteSwatch = {
@@ -241,6 +234,12 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type Slug = {
+  _type: "slug";
+  current?: string;
+  source?: string;
+};
+
 export type AllSanitySchemaTypes =
   | Impact
   | SanityImageAssetReference
@@ -249,7 +248,6 @@ export type AllSanitySchemaTypes =
   | SanityImageHotspot
   | Executive
   | Event
-  | Slug
   | SanityImagePaletteSwatch
   | SanityImagePalette
   | SanityImageDimensions
@@ -257,7 +255,8 @@ export type AllSanitySchemaTypes =
   | SanityFileAsset
   | SanityAssetSourceData
   | SanityImageAsset
-  | Geopoint;
+  | Geopoint
+  | Slug;
 
 // Source: app/events/page.tsx
 // Variable: EVENTS_QUERY

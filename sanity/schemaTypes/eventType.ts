@@ -11,11 +11,6 @@ export const eventType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'slug',
-      type: 'slug',
-      options: { source: 'name' }, // Auto-generates the URL from the name
-    }),
-    defineField({
       name: 'date',
       type: 'datetime',
       validation: (rule) => rule.required(),
