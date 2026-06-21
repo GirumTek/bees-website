@@ -4,9 +4,9 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
-import type { Event } from "@/sanity.types";
+import type { EVENTS_QUERY_RESULT } from "@/sanity.types";
 
-export default function UpcomingEventCard({ event }: { event: Event }) {
+export default function UpcomingEventCard({ event }: { event: EVENTS_QUERY_RESULT["upcoming"][number] }) {
   const [isOpen, setIsOpen] = useState(false);
   const eventDate = new Date(event.date || 0);
   const modalRef = useRef<HTMLDivElement>(null);

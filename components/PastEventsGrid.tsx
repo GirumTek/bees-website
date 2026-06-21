@@ -4,10 +4,12 @@ import { useState, useRef, useEffect } from 'react';
 import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
-import type { Event } from "@/sanity.types";
+import type { EVENTS_QUERY_RESULT } from "@/sanity.types";
 
-export default function PastEventsGrid({ events }: { events: Event[] }) {
-  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+type EventItem = EVENTS_QUERY_RESULT["past"][number];
+
+export default function PastEventsGrid({ events }: { events: EventItem[] }) {
+  const [selectedEvent, setSelectedEvent] = useState<EventItem | null>(null);
   const modalRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
 

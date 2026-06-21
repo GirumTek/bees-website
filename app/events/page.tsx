@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { defineQuery } from "next-sanity";
 import { client } from "@/sanity/lib/client";
-import type { Event, EVENTS_QUERY_RESULT } from "@/sanity.types";
+import type { EVENTS_QUERY_RESULT } from "@/sanity.types";
 import UpcomingEventCard from "@/components/UpcomingEventCard";
 import PastEventsGrid from "@/components/PastEventsGrid";
 
@@ -42,7 +42,7 @@ export default async function EventsPage() {
 
         <div className="flex flex-col gap-12 mb-24">
           {upcoming.length > 0 ? (
-            upcoming.map((event) => <UpcomingEventCard key={event._id} event={event as unknown as Event} />)
+            upcoming.map((event) => <UpcomingEventCard key={event._id} event={event} />)
           ) : (
             <p className="text-center text-gray-500">No upcoming events right now — stay tuned! 🐝</p>
           )}
@@ -53,8 +53,7 @@ export default async function EventsPage() {
           <p className="text-center text-gray-500 mb-12 max-w-xl mx-auto">
             A look back at our history and the moments that shaped BEES — annual events, community gatherings, and milestones.
           </p>
-          {/* These components still consume the full document type; the projection is a runtime subset of it */}
-          <PastEventsGrid events={past as unknown as Event[]} />
+          <PastEventsGrid events={past} />
         </div>
       </div>
     </div>

@@ -1,8 +1,8 @@
 import { PortableText } from "@portabletext/react";
 import Card from "@/components/Card";
-import type { Impact } from "@/sanity.types";
+import type { IMPACT_QUERY_RESULT } from "@/sanity.types";
 
-export default function ImpactGrid({ items }: { items: Impact[] }) {
+export default function ImpactGrid({ items }: { items: IMPACT_QUERY_RESULT }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
       {items.map((item) => (

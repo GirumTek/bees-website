@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { defineQuery } from "next-sanity";
 import { client } from "@/sanity/lib/client";
-import type { Impact, IMPACT_QUERY_RESULT } from "@/sanity.types";
+import type { IMPACT_QUERY_RESULT } from "@/sanity.types";
 import ImpactGrid from "@/components/ImpactGrid";
 
 export const metadata: Metadata = {
@@ -35,9 +35,8 @@ export default async function ImpactPage() {
           BEES is dedicated to tangible results. Here is how we are making a difference in the community and on grounds.
         </p>
 
-        {/* ImpactGrid still consumes the full document type; the projection is a runtime subset of it */}
         {impactItems.length > 0 ? (
-          <ImpactGrid items={impactItems as unknown as Impact[]} />
+          <ImpactGrid items={impactItems} />
         ) : (
           <p className="text-center text-gray-500">
             Impact stats unavailable right now — check back soon!
