@@ -12,7 +12,7 @@ export default function MissionPage() {
           SECTION 1 — OUR MISSION
       ═══════════════════════════════════════════════ */}
       <section className="text-center mb-20">
-        <h1 className="text-4xl font-bold mb-6 text-green-800">Our Mission</h1>
+        <h1 className="text-4xl font-bold mb-6 text-green-900">Our Mission</h1>
 
         <p className="text-xl leading-relaxed text-gray-800 mb-10 max-w-3xl mx-auto">
           &ldquo;To increase financial literacy, emphasize the importance of asset

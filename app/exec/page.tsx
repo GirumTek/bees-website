@@ -30,7 +30,7 @@ export default async function ExecPage() {
 
   return (
     <div className="bg-white min-h-screen p-10 flex flex-col items-center w-full max-w-7xl mx-auto">
-      <h1 className="text-4xl font-bold text-center text-green-800 mb-12">Meet the Executive Board</h1>
+      <h1 className="text-4xl font-bold text-center text-green-900 mb-12">Meet the Executive Board</h1>
 
       {team.length > 0 ? (
         <div className="flex flex-wrap justify-center gap-10">

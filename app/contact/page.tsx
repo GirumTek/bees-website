@@ -11,7 +11,7 @@ export default function ContactPage() {
     <div className="bg-white min-h-screen p-10 flex flex-col items-center w-full max-w-7xl mx-auto">
 
       {/* Header */}
-      <h1 className="text-4xl font-bold text-green-800 mb-6">Contact Us</h1>
+      <h1 className="text-4xl font-bold text-green-900 mb-6">Contact Us</h1>
       <p className="mb-10 text-lg text-gray-600 max-w-2xl text-center">
         Interested in partnering with BEES, joining the team, or just have a question? We&apos;d love to hear from you.
       </p>

@@ -10,7 +10,7 @@ export default function GetInvolvedPage() {
   return (
     <div className="bg-white min-h-screen p-10">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-center text-green-800 mb-4">
+        <h1 className="text-4xl font-bold text-center text-green-900 mb-4">
           Get Involved
         </h1>
         <p className="text-center text-gray-500 mb-12 max-w-2xl mx-auto">
