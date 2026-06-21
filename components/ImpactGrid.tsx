@@ -8,7 +8,7 @@ export default function ImpactGrid({ items }: { items: IMPACT_QUERY_RESULT }) {
       {items.map((item) => (
         <Card
           key={item._id}
-          className="flex flex-col items-center text-center p-12 border border-green-100/50 transition-all hover:shadow-xl hover:bg-green-50"
+          className="flex flex-col items-center text-center p-6 sm:p-12 border border-green-100/50 transition-all hover:shadow-xl hover:bg-green-50"
         >
           {/* 1. The Number / Statistic (e.g., 50+) */}
           <div className="text-7xl font-black text-green-700 mb-2 tracking-tighter">

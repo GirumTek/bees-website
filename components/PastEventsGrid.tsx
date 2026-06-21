@@ -95,11 +95,11 @@ export default function PastEventsGrid({ events }: { events: EventItem[] }) {
             <button onClick={() => setSelectedEvent(null)} aria-label="Close" className="absolute top-4 right-4 z-50 bg-black/50 text-white w-10 h-10 rounded-full flex items-center justify-center">✕</button>
             <div className="overflow-y-auto">
               {selectedEvent.image && (
-                <div className="relative w-full h-[50vh] bg-gray-100">
+              <div className="relative w-full h-[40vh] bg-gray-100">
                   <Image src={urlFor(selectedEvent.image).url()} alt={selectedEvent.name ?? "BEES event"} fill sizes="100vw" className="object-contain" />
                 </div>
               )}
-              <div className="p-8">
+              <div className="p-4 sm:p-8">
                 <h2 className="text-3xl font-bold text-gray-900 mb-2">{selectedEvent.name}</h2>
                 <p className="text-green-700 font-semibold mb-6">📍 {selectedEvent.location}</p>
                 <div className="prose prose-green text-gray-600 max-w-none">

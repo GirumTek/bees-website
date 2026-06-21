@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -8,6 +9,13 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [whoWeAreOpen, setWhoWeAreOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+
+  // Close mobile menu on route change (e.g. browser back button)
+  useEffect(() => {
+    setIsOpen(false);
+    setWhoWeAreOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -40,7 +48,13 @@ export default function Navbar() {
           {/* 2. DESKTOP MENU */}
           <div className="hidden md:block">
             <div className="flex items-baseline space-x-4">
-              <div className="relative" ref={dropdownRef}>
+              {/* WHO WE ARE DROPDOWN — opens on hover on desktop */}
+              <div
+                className="relative group"
+                ref={dropdownRef}
+                onMouseEnter={() => setWhoWeAreOpen(true)}
+                onMouseLeave={() => setWhoWeAreOpen(false)}
+              >
                 <button
                   onClick={() => setWhoWeAreOpen(!whoWeAreOpen)}
                   aria-expanded={whoWeAreOpen}
@@ -57,10 +71,16 @@ export default function Navbar() {
                 </button>
 
                 {whoWeAreOpen && (
-                  <div className="absolute left-0 mt-1 w-44 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden z-50">
-                    <DropdownLink href="/mission" onClick={() => setWhoWeAreOpen(false)}>🎯 Mission</DropdownLink>
-                    <DropdownLink href="/exec" onClick={() => setWhoWeAreOpen(false)}>👥 Exec Board</DropdownLink>
-                    <DropdownLink href="/learn-more" onClick={() => setWhoWeAreOpen(false)}>📖 Learn More</DropdownLink>
+                  <div className="absolute left-0 top-full w-44 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden z-50">
+                    <DropdownLink href="/mission" onClick={() => setWhoWeAreOpen(false)}>
+                      🎯 Mission
+                    </DropdownLink>
+                    <DropdownLink href="/exec" onClick={() => setWhoWeAreOpen(false)}>
+                      👥 Exec Board
+                    </DropdownLink>
+                    <DropdownLink href="/learn-more" onClick={() => setWhoWeAreOpen(false)}>
+                      📖 Learn More
+                    </DropdownLink>
                   </div>
                 )}
               </div>
