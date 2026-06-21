@@ -9,7 +9,6 @@ export default function Navbar() {
   const [whoWeAreOpen, setWhoWeAreOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -25,7 +24,7 @@ export default function Navbar() {
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
 
-          {/* 1. LOGO — navigates home */}
+          {/* 1. LOGO */}
           <div className="flex-shrink-0">
             <Link href="/">
               <Image
@@ -41,8 +40,6 @@ export default function Navbar() {
           {/* 2. DESKTOP MENU */}
           <div className="hidden md:block">
             <div className="flex items-baseline space-x-4">
-
-              {/* WHO WE ARE DROPDOWN */}
               <div className="relative" ref={dropdownRef}>
                 <button
                   onClick={() => setWhoWeAreOpen(!whoWeAreOpen)}
@@ -59,15 +56,9 @@ export default function Navbar() {
 
                 {whoWeAreOpen && (
                   <div className="absolute left-0 mt-1 w-44 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden z-50">
-                    <DropdownLink href="/mission" onClick={() => setWhoWeAreOpen(false)}>
-                      🎯 Mission
-                    </DropdownLink>
-                    <DropdownLink href="/exec" onClick={() => setWhoWeAreOpen(false)}>
-                      👥 Exec Board
-                    </DropdownLink>
-                    <DropdownLink href="/learn-more" onClick={() => setWhoWeAreOpen(false)}>
-                      📖 Learn More
-                    </DropdownLink>
+                    <DropdownLink href="/mission" onClick={() => setWhoWeAreOpen(false)}>🎯 Mission</DropdownLink>
+                    <DropdownLink href="/exec" onClick={() => setWhoWeAreOpen(false)}>👥 Exec Board</DropdownLink>
+                    <DropdownLink href="/learn-more" onClick={() => setWhoWeAreOpen(false)}>📖 Learn More</DropdownLink>
                   </div>
                 )}
               </div>
@@ -101,23 +92,28 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* 4. MOBILE MENU DROPDOWN */}
+      {/* 4. MOBILE MENU — full screen overlay */}
       {isOpen && (
-        <div className="md:hidden bg-green-800">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+        <div className="md:hidden fixed inset-0 top-16 bg-green-700 z-40 overflow-y-auto">
+          <div className="flex flex-col px-6 py-8 gap-2">
 
-            {/* WHO WE ARE section (expanded inline on mobile) */}
-            <div className="px-3 py-2 text-green-300 text-xs font-bold uppercase tracking-widest">
+            {/* WHO WE ARE section */}
+            <p className="text-green-300 text-xs font-bold uppercase tracking-widest mb-1 px-2">
               Who We Are
-            </div>
-            <MobileNavLink href="/mission" onClick={() => setIsOpen(false)} indent>🎯 Mission</MobileNavLink>
-            <MobileNavLink href="/exec" onClick={() => setIsOpen(false)} indent>👥 Exec Board</MobileNavLink>
-            <MobileNavLink href="/learn-more" onClick={() => setIsOpen(false)} indent>📖 Learn More</MobileNavLink>
+            </p>
+            <MobileNavLink href="/mission" onClick={() => setIsOpen(false)} emoji="🎯">Mission</MobileNavLink>
+            <MobileNavLink href="/exec" onClick={() => setIsOpen(false)} emoji="👥">Exec Board</MobileNavLink>
+            <MobileNavLink href="/learn-more" onClick={() => setIsOpen(false)} emoji="📖">Learn More</MobileNavLink>
 
-            <MobileNavLink href="/impact" onClick={() => setIsOpen(false)}>Impact</MobileNavLink>
-            <MobileNavLink href="/get-involved" onClick={() => setIsOpen(false)}>Get Involved</MobileNavLink>
-            <MobileNavLink href="/events" onClick={() => setIsOpen(false)}>Events</MobileNavLink>
-            <MobileNavLink href="/contact" onClick={() => setIsOpen(false)}>Contact</MobileNavLink>
+            {/* Divider */}
+            <div className="border-t border-green-600 my-3" />
+
+            {/* Main links */}
+            <MobileNavLink href="/impact" onClick={() => setIsOpen(false)} emoji="📊">Impact</MobileNavLink>
+            <MobileNavLink href="/get-involved" onClick={() => setIsOpen(false)} emoji="🐝">Get Involved</MobileNavLink>
+            <MobileNavLink href="/events" onClick={() => setIsOpen(false)} emoji="📅">Events</MobileNavLink>
+            <MobileNavLink href="/contact" onClick={() => setIsOpen(false)} emoji="✉️">Contact</MobileNavLink>
+
           </div>
         </div>
       )}
@@ -127,10 +123,7 @@ export default function Navbar() {
 
 function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <Link
-      href={href}
-      className="px-3 py-2 rounded-md text-sm font-medium hover:bg-green-600 hover:text-white transition"
-    >
+    <Link href={href} className="px-3 py-2 rounded-md text-sm font-medium hover:bg-green-600 hover:text-white transition">
       {children}
     </Link>
   );
@@ -138,11 +131,7 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
 
 function DropdownLink({ href, onClick, children }: { href: string; onClick: () => void; children: React.ReactNode }) {
   return (
-    <Link
-      href={href}
-      onClick={onClick}
-      className="block px-4 py-3 text-sm text-gray-800 font-medium hover:bg-green-50 hover:text-green-700 transition border-b border-gray-100 last:border-0"
-    >
+    <Link href={href} onClick={onClick} className="block px-4 py-3 text-sm text-gray-800 font-medium hover:bg-green-50 hover:text-green-700 transition border-b border-gray-100 last:border-0">
       {children}
     </Link>
   );
@@ -151,22 +140,21 @@ function DropdownLink({ href, onClick, children }: { href: string; onClick: () =
 function MobileNavLink({
   href,
   onClick,
+  emoji,
   children,
-  indent = false,
 }: {
   href: string;
   onClick: () => void;
+  emoji: string;
   children: React.ReactNode;
-  indent?: boolean;
 }) {
   return (
     <Link
       href={href}
       onClick={onClick}
-      className={`block px-3 py-4 rounded-md text-base font-medium text-white hover:bg-green-600 transition border-b border-green-700 last:border-0 ${
-        indent ? "pl-8 text-green-200 text-sm" : ""
-      }`}
+      className="flex items-center gap-4 px-4 py-4 rounded-2xl text-lg font-semibold text-white hover:bg-green-600 active:bg-green-500 transition"
     >
+      <span className="text-2xl w-8 text-center">{emoji}</span>
       {children}
     </Link>
   );

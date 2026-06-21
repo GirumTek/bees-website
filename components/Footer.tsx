@@ -8,9 +8,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-12 items-start">
           {/* About */}
           <div>
-            <h3 className="font-bold text-green-300 mb-4 text-sm uppercase tracking-wider">
+            <h2 className="font-bold text-green-300 mb-4 text-sm uppercase tracking-wider">
               About
-            </h3>
+            </h2>
             <ul className="space-y-2 text-sm">
               <FooterLink href="/mission">Mission</FooterLink>
               <FooterLink href="/mission#our-story">Our Story</FooterLink>
@@ -20,9 +20,9 @@ export default function Footer() {
 
           {/* Explore */}
           <div>
-            <h3 className="font-bold text-green-300 mb-4 text-sm uppercase tracking-wider">
+            <h2 className="font-bold text-green-300 mb-4 text-sm uppercase tracking-wider">
               Explore
-            </h3>
+            </h2>
             <ul className="space-y-2 text-sm">
               <FooterLink href="/events">Events</FooterLink>
               <FooterLink href="/impact">Impact</FooterLink>
@@ -32,9 +32,9 @@ export default function Footer() {
 
           {/* Join & Connect combined */}
           <div>
-            <h3 className="font-bold text-green-300 mb-4 text-sm uppercase tracking-wider">
+            <h2 className="font-bold text-green-300 mb-4 text-sm uppercase tracking-wider">
               Join &amp; Connect
-            </h3>
+            </h2>
             <ul className="space-y-2 text-sm">
               <FooterLink href="/get-involved">Get Involved</FooterLink>
               <FooterLink href="/get-involved#committees">Committees</FooterLink>
