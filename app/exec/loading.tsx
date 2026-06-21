@@ -8,7 +8,7 @@ export default function ExecLoading() {
       {/* Card skeletons */}
       <div className="flex flex-wrap justify-center gap-10">
         {[1, 2, 3, 4].map((i) => (
-          <div key={i} className="w-full sm:w-80 bg-white rounded-3xl shadow-lg border-2 border-gray-100 overflow-hidden flex flex-col">
+          <div key={i} className="w-full sm:w-80 bg-white rounded-[2.5rem] shadow-lg border-2 border-gray-100 overflow-hidden flex flex-col">
             {/* Photo placeholder */}
             <div className="h-96 bg-gray-200" />
             {/* Text placeholder */}

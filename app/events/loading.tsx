@@ -9,7 +9,7 @@ export default function EventsLoading() {
 
         {/* Upcoming event card skeletons */}
         {[1, 2].map((i) => (
-          <div key={i} className="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-200 flex flex-col md:flex-row min-h-[300px] mb-12">
+          <div key={i} className="bg-white shadow-xl rounded-[2.5rem] overflow-hidden border border-gray-200 flex flex-col md:flex-row min-h-[300px] mb-12">
             {/* Image placeholder */}
             <div className="w-full md:w-1/3 h-64 md:h-auto bg-gray-200" />
             {/* Text placeholder */}
@@ -30,7 +30,7 @@ export default function EventsLoading() {
           {/* Past events grid skeletons */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="rounded-2xl overflow-hidden aspect-[3/4] bg-gray-200" />
+              <div key={i} className="rounded-[2.5rem] overflow-hidden aspect-[3/4] bg-gray-200" />
             ))}
           </div>
         </div>

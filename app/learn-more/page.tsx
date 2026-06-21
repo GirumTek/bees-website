@@ -26,7 +26,7 @@ export default function LearnMorePage() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-8 bg-white rounded-2xl shadow-lg border border-gray-200">
+            <div className="p-8 bg-white rounded-[2.5rem] shadow-lg border border-gray-200">
               <h3 className="text-2xl font-bold text-green-900 mb-4">
                 🌟 Why Should I Join?
               </h3>
@@ -37,7 +37,7 @@ export default function LearnMorePage() {
               </p>
             </div>
 
-            <div className="p-8 bg-white rounded-2xl shadow-lg border border-gray-200">
+            <div className="p-8 bg-white rounded-[2.5rem] shadow-lg border border-gray-200">
               <h3 className="text-2xl font-bold text-green-900 mb-4">
                 🤝 Who Is BEES For?
               </h3>
@@ -48,7 +48,7 @@ export default function LearnMorePage() {
               </p>
             </div>
 
-            <div className="p-8 bg-white rounded-2xl shadow-lg border border-gray-200">
+            <div className="p-8 bg-white rounded-[2.5rem] shadow-lg border border-gray-200">
               <h3 className="text-2xl font-bold text-green-900 mb-4">
                 💡 How Are We Different?
               </h3>
@@ -59,7 +59,7 @@ export default function LearnMorePage() {
               </p>
             </div>
 
-            <div className="p-8 bg-white rounded-2xl shadow-lg border border-gray-200">
+            <div className="p-8 bg-white rounded-[2.5rem] shadow-lg border border-gray-200">
               <h3 className="text-2xl font-bold text-green-900 mb-4">
                 🚀 Skills &amp; Leadership
               </h3>
@@ -138,7 +138,7 @@ function PageLink({
   return (
     <Link
       href={href}
-      className="block p-6 bg-green-50 rounded-2xl border-2 border-green-200 hover:border-green-500 hover:shadow-lg transition group"
+      className="block p-6 bg-green-50 rounded-[2.5rem] border-2 border-green-200 hover:border-green-500 hover:shadow-lg transition group"
     >
       <div className="text-3xl mb-3">{emoji}</div>
       <h3 className="text-xl font-bold text-green-900 mb-2 group-hover:text-green-600 transition">

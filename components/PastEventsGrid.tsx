@@ -61,7 +61,7 @@ export default function PastEventsGrid({ events }: { events: EventItem[] }) {
               triggerRef.current = e.currentTarget;
               setSelectedEvent(event);
             }}
-            className="group cursor-pointer relative rounded-2xl overflow-hidden shadow-lg border border-gray-200 bg-white aspect-[3/4] w-full text-left"
+            className="group cursor-pointer relative rounded-[2.5rem] overflow-hidden shadow-lg border border-gray-200 bg-white aspect-[3/4] w-full text-left"
           >
             {event.image && (
               <Image

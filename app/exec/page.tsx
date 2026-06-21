@@ -35,7 +35,7 @@ export default async function ExecPage() {
       {team.length > 0 ? (
         <div className="flex flex-wrap justify-center gap-10">
           {team.map((member, index) => (
-            <div key={member._id} className="w-full sm:w-80 bg-white rounded-3xl shadow-lg border-2 border-green-600 overflow-hidden flex flex-col">
+            <div key={member._id} className="w-full sm:w-80 bg-white rounded-[2.5rem] shadow-lg border-2 border-green-600 overflow-hidden flex flex-col">
               <div className="h-96 relative bg-gray-200">
                 {member.image && (
                   <Image

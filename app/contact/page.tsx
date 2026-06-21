@@ -17,7 +17,7 @@ export default function ContactPage() {
       </p>
 
       {/* Contact Card */}
-      <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-xl border-t-8 border-green-600">
+      <div className="bg-white shadow-xl rounded-[2.5rem] p-8 w-full max-w-xl border-t-8 border-green-600">
 
         {/* Email Section */}
         <div className="mb-8 text-center">
